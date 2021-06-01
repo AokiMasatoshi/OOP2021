@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SalesCalculator {
+namespace Exercise3 {
     // 売り上げクラス
     public class Sale {
         // 店舗名

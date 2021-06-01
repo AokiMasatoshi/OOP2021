@@ -1,4 +1,4 @@
-﻿using SalesCalculator;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +10,10 @@ namespace Exercise3 {
         static void Main(string[] args) {
             var sales = new SalesCounter("Sales.csv");
 
-            var amountPerCategory = sales.GetPerStoreSales();
+            
+            var amountPerCategory = sales.GetPerCategorySales();
             foreach (var obj in amountPerCategory) {
-                Console.WriteLine("{0}{1}", obj.Key, obj.Value);
+                Console.WriteLine("{0}{1:#,0}円", obj.Key, obj.Value);
 
             }
         }

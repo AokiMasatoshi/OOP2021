@@ -14,11 +14,7 @@ namespace Exercise2 {
             } else {
                 PrintInchToMeterList(1, 10);
             }
-
-
         }
-
-
 
         private static void PrintInchToMeterList(int start, int stop) {
             for (int Inch = start; Inch <= stop; Inch++) {
