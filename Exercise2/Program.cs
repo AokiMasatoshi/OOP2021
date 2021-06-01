@@ -8,7 +8,14 @@ namespace Exercise2 {
     class Program {
         static void Main(string[] args) {
             //フィートからメートルへの対応表を出力
+
+            if (args.Length >= 1 && args[0] == "-tom") {
+                PrintMeterToInchList(1, 10);
+            } else {
                 PrintInchToMeterList(1, 10);
+            }
+
+
         }
 
 
@@ -17,6 +24,13 @@ namespace Exercise2 {
             for (int Inch = start; Inch <= stop; Inch++) {
                 double meter = InchConverter.ToMeter(Inch);
                 Console.WriteLine("{0}Inch = {1:0.0000}m", Inch, meter);
+
+            }
+        }
+        private static void PrintMeterToInchList(int start, int stop) {
+            for (int meter = start; meter <= stop; meter++) {
+                double Inch = InchConverter.FromMeter(meter);
+                Console.WriteLine("{0}m ={1:0.0000}Inch", meter, Inch);
             }
         }
     }
