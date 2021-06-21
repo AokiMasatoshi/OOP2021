@@ -46,6 +46,7 @@ namespace Exercise2 {
 
         private static void Exercise2_4(YearMonth[] ymCollection) {
             var ymCheck = FindFirst21C(ymCollection);
+
             //if (ymCheck!= null) {
             //    Console.WriteLine(ymCheck.Year);
             //} else {
