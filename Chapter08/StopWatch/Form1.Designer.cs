@@ -30,24 +30,26 @@ namespace StopWatch {
             this.btStop = new System.Windows.Forms.Button();
             this.btReset = new System.Windows.Forms.Button();
             this.tmDisp = new System.Windows.Forms.Timer(this.components);
+            this.btLap = new System.Windows.Forms.Button();
+            this.lbLapDisp = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // lbTimerDisp
             // 
             this.lbTimerDisp.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.lbTimerDisp.Font = new System.Drawing.Font("MS UI Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.lbTimerDisp.Location = new System.Drawing.Point(72, 66);
+            this.lbTimerDisp.Location = new System.Drawing.Point(79, 76);
             this.lbTimerDisp.Name = "lbTimerDisp";
-            this.lbTimerDisp.Size = new System.Drawing.Size(420, 50);
+            this.lbTimerDisp.Size = new System.Drawing.Size(357, 50);
             this.lbTimerDisp.TabIndex = 0;
             this.lbTimerDisp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btStart
             // 
             this.btStart.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btStart.Location = new System.Drawing.Point(78, 163);
+            this.btStart.Location = new System.Drawing.Point(79, 162);
             this.btStart.Name = "btStart";
-            this.btStart.Size = new System.Drawing.Size(168, 78);
+            this.btStart.Size = new System.Drawing.Size(167, 78);
             this.btStart.TabIndex = 1;
             this.btStart.Text = "スタート";
             this.btStart.UseVisualStyleBackColor = true;
@@ -56,7 +58,7 @@ namespace StopWatch {
             // btStop
             // 
             this.btStop.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btStop.Location = new System.Drawing.Point(270, 163);
+            this.btStop.Location = new System.Drawing.Point(79, 258);
             this.btStop.Name = "btStop";
             this.btStop.Size = new System.Drawing.Size(167, 77);
             this.btStop.TabIndex = 2;
@@ -67,7 +69,7 @@ namespace StopWatch {
             // btReset
             // 
             this.btReset.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btReset.Location = new System.Drawing.Point(78, 271);
+            this.btReset.Location = new System.Drawing.Point(269, 163);
             this.btReset.Name = "btReset";
             this.btReset.Size = new System.Drawing.Size(167, 77);
             this.btReset.TabIndex = 3;
@@ -75,11 +77,38 @@ namespace StopWatch {
             this.btReset.UseVisualStyleBackColor = true;
             this.btReset.Click += new System.EventHandler(this.tbReset_Click);
             // 
+            // tmDisp
+            // 
+            this.tmDisp.Interval = 1;
+            // 
+            // btLap
+            // 
+            this.btLap.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btLap.Location = new System.Drawing.Point(269, 258);
+            this.btLap.Name = "btLap";
+            this.btLap.Size = new System.Drawing.Size(167, 77);
+            this.btLap.TabIndex = 4;
+            this.btLap.Text = "ラップ";
+            this.btLap.UseVisualStyleBackColor = true;
+            this.btLap.Click += new System.EventHandler(this.btLap_Click);
+            // 
+            // lbLapDisp
+            // 
+            this.lbLapDisp.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lbLapDisp.FormattingEnabled = true;
+            this.lbLapDisp.ItemHeight = 24;
+            this.lbLapDisp.Location = new System.Drawing.Point(478, 76);
+            this.lbLapDisp.Name = "lbLapDisp";
+            this.lbLapDisp.Size = new System.Drawing.Size(258, 268);
+            this.lbLapDisp.TabIndex = 5;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(768, 380);
+            this.Controls.Add(this.lbLapDisp);
+            this.Controls.Add(this.btLap);
             this.Controls.Add(this.btReset);
             this.Controls.Add(this.btStop);
             this.Controls.Add(this.btStart);
@@ -98,6 +127,8 @@ namespace StopWatch {
         private System.Windows.Forms.Button btStop;
         private System.Windows.Forms.Button btReset;
         private System.Windows.Forms.Timer tmDisp;
+        private System.Windows.Forms.Button btLap;
+        private System.Windows.Forms.ListBox lbLapDisp;
     }
 }
 

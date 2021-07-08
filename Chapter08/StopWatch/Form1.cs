@@ -28,7 +28,6 @@ namespace StopWatch {
 
         private void btStrat_Click(object sender, EventArgs e) {
             sw.Start();
-            tmDisp.Interval = 10;
             tmDisp.Tick += Tm_Tick;
             tmDisp.Start();
 
@@ -39,7 +38,13 @@ namespace StopWatch {
         }
 
         private void tbReset_Click(object sender, EventArgs e) {
-            sw.Restart();
+            sw.Reset();
+            lbLapDisp.Items.Clear();
+
+        }
+
+        private void btLap_Click(object sender, EventArgs e) {
+            lbLapDisp.Items.Insert(0,lbTimerDisp.Text);
         }
     }
 }
