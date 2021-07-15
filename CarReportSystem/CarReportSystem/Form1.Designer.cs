@@ -247,7 +247,7 @@ namespace CarReportSystem {
             // 
             // tbReport
             // 
-            this.tbReport.Location = new System.Drawing.Point(105, 195);
+            this.tbReport.Location = new System.Drawing.Point(105, 198);
             this.tbReport.Multiline = true;
             this.tbReport.Name = "tbReport";
             this.tbReport.Size = new System.Drawing.Size(401, 123);
@@ -324,6 +324,7 @@ namespace CarReportSystem {
             this.btOpen.TabIndex = 14;
             this.btOpen.Text = "開く";
             this.btOpen.UseVisualStyleBackColor = true;
+            this.btOpen.Click += new System.EventHandler(this.btOpen_Click);
             // 
             // btSave
             // 
@@ -333,6 +334,7 @@ namespace CarReportSystem {
             this.btSave.TabIndex = 14;
             this.btSave.Text = "保存";
             this.btSave.UseVisualStyleBackColor = true;
+            this.btSave.Click += new System.EventHandler(this.btSave_Click);
             // 
             // btExit
             // 
