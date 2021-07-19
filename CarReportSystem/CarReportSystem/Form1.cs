@@ -23,7 +23,7 @@ namespace CarReportSystem {
         }
 
         private void btPictureOpen_Click(object sender, EventArgs e) {
-            if(ofdPictureOpen.ShowDialog()== DialogResult.OK) {
+            if (ofdPictureOpen.ShowDialog() == DialogResult.OK) {
                 pbPicture.Image = Image.FromFile(ofdPictureOpen.FileName);
             }
         }
@@ -33,9 +33,9 @@ namespace CarReportSystem {
         }
 
         private void btDataAdd_Click(object sender, EventArgs e) {
-            if (cbAuthor.Text==""||cbCarName.Text=="") { 
+            if (cbAuthor.Text == "" || cbCarName.Text == "") {
                 MessageBox.Show("入力されていません");
-                return ;
+                return;
             } else {
                 CarReport carReport = new CarReport {
                     Date = dtpDate.Value,
@@ -52,7 +52,7 @@ namespace CarReportSystem {
                 setCbAuther(cbAuthor.Text);
                 setCbCarName(cbCarName.Text);
             }
-            
+
         }
         private CarReport.MakerGroup SelectedGroup() {
             foreach (var rb in gbMaker.Controls) {
@@ -68,7 +68,7 @@ namespace CarReportSystem {
             if (!cbAuthor.Items.Contains(author)) {
                 cbAuthor.Items.Add(author);
             }
-            
+
         }
         //コンボボックスに車名をセットする
         private void setCbCarName(string carname) {
@@ -78,19 +78,19 @@ namespace CarReportSystem {
 
         }
 
-        
+
 
         private void dgvRegistData_CellClick(object sender, DataGridViewCellEventArgs e) {
             //選択された行のデータ取得
             if (e.RowIndex == -1) return;
-           
 
-                
+
+
             CarReport selectedCar = listCarReport[e.RowIndex];
-            
 
 
-            
+
+
 
             //取得したデータを
             dtpDate.Value = selectedCar.Date;
@@ -135,37 +135,65 @@ namespace CarReportSystem {
         private void btDateDelete_Click(object sender, EventArgs e) {
             listCarReport.RemoveAt(dgvRegistData.CurrentRow.Index);
 
-            
+
         }
 
         private void btDataCorrect_Click(object sender, EventArgs e) {
-            listCarReport[dgvRegistData.CurrentRow.Index].UpDate(dtpDate.Value,cbAuthor.Text, SelectedGroup(),cbCarName.Text,tbReport.Text,pbPicture.Image);
+            listCarReport[dgvRegistData.CurrentRow.Index].UpDate(dtpDate.Value, cbAuthor.Text, SelectedGroup(), cbCarName.Text, tbReport.Text, pbPicture.Image);
             dgvRegistData.Refresh();//コントロールの強制再描画
 
         }
 
         private void btSave_Click(object sender, EventArgs e) {
-            if (sfdFileSave.ShowDialog() == DialogResult.OK) {
-                //バイナリー形式でシリアル化
-                var bf = new BinaryFormatter();
+            try {
+                if (sfdFileSave.ShowDialog() == DialogResult.OK) {
+                    //バイナリー形式でシリアル化
+                    var bf = new BinaryFormatter();
 
-                using (FileStream fs=File.Open(sfdFileSave.FileName,FileMode.Create)) {
-                    bf.Serialize(fs,listCarReport);
+                    using (FileStream fs = File.Open(sfdFileSave.FileName, FileMode.Create)) {
+                        bf.Serialize(fs, listCarReport);
 
+                    }
                 }
             }
+            catch (Exception ex) {
+                MessageBox.Show("保存できませんでした");
+
+            }
+            
         }
 
         private void btOpen_Click(object sender, EventArgs e) {
-            if (ofdFileOpen.ShowDialog() == DialogResult.OK) {
-                //バイナリー形式で逆シリアル化
-                var bf = new BinaryFormatter();
-                using (FileStream fs = File.Open(ofdFileOpen.FileName,FileMode.Open,FileAccess.Read)) {
-                    listCarReport = (BindingList<CarReport>)bf.Deserialize(fs);
-                    dgvRegistData.DataSource = null;
-                    dgvRegistData.DataSource = listCarReport;
+            try {
+                if (ofdFileOpen.ShowDialog() == DialogResult.OK) {
+                    //バイナリー形式で逆シリアル化
+                    var bf = new BinaryFormatter();
+                    using (FileStream fs = File.Open(ofdFileOpen.FileName, FileMode.Open, FileAccess.Read)) {
+                        listCarReport = (BindingList<CarReport>)bf.Deserialize(fs);
+                        dgvRegistData.DataSource = null;
+                        dgvRegistData.DataSource = listCarReport;
+                    }
+
                 }
+
+            }catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+
             }
+                foreach (var item in listCarReport) {
+                        setCbAuther(item.Auther);
+                        setCbCarName(item.CarName);
+                }
+                    //for (int i=0;i < dgvRegistData.RowCount; i++) {
+                    //    setCbAuther(dgvRegistData.Rows[i].Cells[1].ToString());
+                    //    setCbCarName(dgvRegistData.Rows[i].Cells[3].ToString());
+                    //}
+                
+            
+        }
+
+        private void fmMain_Load(object sender, EventArgs e) {
+            dgvRegistData.Columns[5].Visible = false;
         }
     }
 }
