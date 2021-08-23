@@ -31,7 +31,6 @@ namespace Sample0823
            // for (int i = 0; i < num2; i++)
            //{
            //  ans= ans *num1;
-           //
            //}
            //tbResult.Text = ans.ToString();
 
