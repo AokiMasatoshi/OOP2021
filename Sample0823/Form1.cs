@@ -25,7 +25,7 @@ namespace Sample0823
             int num2 = int.Parse(tbJyou.Text);
             //int ans = 1;
 
-           tbResult.Text= ( Math.Pow(num2, num1)).ToString();
+           tbResult.Text= ( Math.Pow(num1, num2)).ToString();
             
 
            // for (int i = 0; i < num2; i++)
