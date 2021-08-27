@@ -11,34 +11,32 @@ namespace Section01
     {
         static void Main(string[] args)
         {
-            var novelists = ReadNovelist();
+            var novelists = ReadNovelists();
 
 
             foreach (var novelist in novelists)
             {
                 Console.WriteLine("{0} ({1} - {2}) - {3}",
                     novelist.Name,novelist.Birth.Year,novelist.Death.Year,
-                    string.Join(",",novelist.MasterPieces));
+                    string.Join(",",novelist.Masterpieces));
 
             }
         }
         //カスタムクラスのオブジェクトとして要素を取り出す
-        static public IEnumerable<Novelist> ReadNovelist()//XMLファイルのロード
+        static public IEnumerable<Novelist> ReadNovelists()//XMLファイルのロード
         {
-            
-            var xdox = XDocument.Load("novelists.xml");
-
-            var novelists = xdox.Root.Elements()
+            var xdoc = XDocument.Load("novelists.xml");
+            var novelists = xdoc.Root.Elements()
                         .Select(x => new Novelist{
                             Name = (string)x.Element("name"),
                             KanaName = (string)(x.Element("name").Attribute("kana")),
                             Birth = (DateTime)x.Element("birth"),
                             Death = (DateTime)x.Element("death"),
-                            MasterPieces = x.Element("masterPieces")
+                            Masterpieces = x.Element("masterpieces")
                                            .Elements("title")
                                            .Select(title => title.Value)
                                            .ToArray()
-                        }) ;
+                        });
             return novelists.ToArray();
         }
     }

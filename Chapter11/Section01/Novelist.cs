@@ -13,7 +13,7 @@ namespace Section01
         public string KanaName { get; set; }
         public DateTime Birth{get; set;}
         public DateTime Death{ get; set;}
-        public IEnumerable<string> MasterPieces { get; set; }
+        public IEnumerable<string> Masterpieces { get; set; }
 
     }
 }
