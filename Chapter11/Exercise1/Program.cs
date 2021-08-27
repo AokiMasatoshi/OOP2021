@@ -18,8 +18,8 @@ namespace Exercise1
             Exercise1_2(file);
             Console.WriteLine("-----------");
 
-           // Exercise1_3(file);
-           //Console.WriteLine("-----------");
+            Exercise1_3(file);
+           Console.WriteLine("-----------");
         }
 
         private static void Exercise1_1(string file)
@@ -41,15 +41,19 @@ namespace Exercise1
             var xsamplelists = xdox.Root.Elements().OrderByDescending(x =>((string)x.Element("firstplayed")));
             foreach (var item in xsamplelists)
             {
-                var xfirstplayed = item.Element("firstplayed");
-                Console.WriteLine("{0} ",xfirstplayed.Value );
+                var xkanji = item.Element("name").Attribute("kanji");
+                Console.WriteLine("{0} ",xkanji.Value );
             }
         }
 
         private static void Exercise1_3(string file)
         {
-            var xdox = XDocument.Load("file");
-           
+            var xdox = XDocument.Load(file);
+            var xsamplelists = xdox.Root.Elements().OrderByDescending(x => ((string)x.Element("teammembers"))).First();
+
+            
+            Console.WriteLine("{0} ", xsamplelists.Element("name").Value);
+
 
         }
     }
