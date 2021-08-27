@@ -12,21 +12,19 @@ namespace Section01
         static void Main(string[] args)
         {
             var xdox = XDocument.Load("novelists.xml");
-            //var xelements = xdox.Root.Elements()
-            //    .Where(x => ((DateTime)x.Element("birth")).Year >= 1900);
-            //var xelements = xdox.Root.Elements()
-            //    .OrderBy(x => (string)(x.Element("birth")));
+
+            var novelists = xdox.Root.Elements()
+                                .Select(x => new
+                                {
+                                    Name = (string)x.Element("name"),
+                                    Birth = (DateTime)x.Element("birth"),
+                                    Death = (DateTime)x.Element("death")
+                                });
 
 
-            foreach (var xnovelist in xdox.Root.Elements())
+            foreach (var novelist in novelists)
             {
-                var xname = xnovelist.Element("name");
-                var works = xnovelist.Element("masterpieces")
-                                     .Elements("title")
-                                     .Select(x=>x.Value);
-                //XAttribute xkana = xname.Attribute("kana");
-                //var xbirth= (DateTime)xnovelist.Element("birth");
-                Console.WriteLine("{0} - {1}" ,xname.Value,string.Join(",",works));
+                Console.WriteLine("{0} ({1} - {2})",novelist.Name,novelist.Birth.Year,novelist.Death.Year);
 
             }
         }
