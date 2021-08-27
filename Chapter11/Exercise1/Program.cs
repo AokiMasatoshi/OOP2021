@@ -19,13 +19,14 @@ namespace Exercise1
             Console.WriteLine("-----------");
 
            // Exercise1_3(file);
-            Console.WriteLine("-----------");
+           //Console.WriteLine("-----------");
         }
 
         private static void Exercise1_1(string file)
         {
-            var xdox = XDocument.Load("file");
-            
+            var xdox = XDocument.Load(file);
+
+
             foreach (var item in xdox.Root.Elements()){
                 var xname = item.Element("name");
                 var xteammembers = item.Element("teammembers");
@@ -35,9 +36,10 @@ namespace Exercise1
 
         private static void Exercise1_2(string file)
         {
-            var xdox = XDocument.Load("file");
-            var xsamplelists = xdox.Root.Elements().OrderBy(x => ((DateTime)x.Element("firstplayed")));
-            foreach (var item in xdox.Root.Elements())
+            var xdox = XDocument.Load(file);
+
+            var xsamplelists = xdox.Root.Elements().OrderBy(x =>(x.Element("firstplayed")));
+            foreach (var item in xsamplelists)
             {
                 var xfirstplayed = item.Element("firstplayed");
                 Console.WriteLine("{0} ",xfirstplayed.Value );
