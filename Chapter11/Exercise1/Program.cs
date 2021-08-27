@@ -42,7 +42,8 @@ namespace Exercise1
             foreach (var item in xsamplelists)
             {
                 var xkanji = item.Element("name").Attribute("kanji");
-                Console.WriteLine("{0} ",xkanji.Value );
+                var xfirstplayed = item.Element("firstplayed");
+                Console.WriteLine("{0} {1}",xkanji.Value ,xfirstplayed.Value);
             }
         }
 
@@ -51,7 +52,7 @@ namespace Exercise1
             var xdox = XDocument.Load(file);
             var xsamplelists = xdox.Root.Elements().OrderByDescending(x => ((string)x.Element("teammembers"))).First();
 
-            
+
             Console.WriteLine("{0} ", xsamplelists.Element("name").Value);
 
 
