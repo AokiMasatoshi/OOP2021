@@ -38,7 +38,7 @@ namespace Exercise1
         {
             var xdox = XDocument.Load(file);
 
-            var xsamplelists = xdox.Root.Elements().OrderBy(x =>(x.Element("firstplayed")));
+            var xsamplelists = xdox.Root.Elements().OrderByDescending(x =>((string)x.Element("firstplayed")));
             foreach (var item in xsamplelists)
             {
                 var xfirstplayed = item.Element("firstplayed");
