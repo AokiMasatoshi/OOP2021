@@ -74,12 +74,12 @@ namespace Exercise1
         {
             var newfile = "sports.xml";
             var xdoc = XDocument.Load(file);
-            var element = new XElement("ballsport",
+            var xelement = new XElement("ballsport",
                  new XElement("name", "サッカー", new XAttribute("kanji", "蹴球")),
                  new XElement("teammembers", "11"),
                  new XElement("firstplayed", "1863")
               );
-            xdoc.Root.Add(element);
+            xdoc.Root.Add(xelement);
             xdoc.Save(newfile);
         }
     }
