@@ -50,10 +50,19 @@ namespace Exercise1
         private static void Exercise1_3(string file)
         {
             var xdox = XDocument.Load(file);
-            var xsamplelists = xdox.Root.Elements().OrderByDescending(x => ((string)x.Element("teammembers"))).First();
+            var sports = xdox.Root.Elements().Select(x => new
+            {
+                Name = x.Element("name").Value,
+                Teammembers = x.Element("teammembers").Value
+            })
+                                                    .OrderByDescending(x => int.Parse(x.Teammembers))
+                                                    .First();
+            Console.WriteLine("{0}", sports.Name);
+                                                    
+                                                    
 
 
-            Console.WriteLine("{0} ", xsamplelists.Element("name").Value);
+            
 
 
         }
