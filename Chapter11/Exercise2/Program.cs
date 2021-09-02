@@ -23,7 +23,7 @@ namespace Exercise2
         {
             var newfile = "newfile";
             var xdoc = XDocument.Load(file);
-            var abc = xdoc.Root.Elements();
+            var element= xdoc.Root.Elements();
 
 
         }
