@@ -14,21 +14,58 @@ namespace Section04
     {
         static void Main(string[] args)
         {
+            
+            
             new Program();
 
         }
+
         //コンストラクタ
         public Program()
         {
-            //DownlordString();
-            //DownloadFileAsync();
-            //OpenReadsample();
-            var results = GetWeatherReportFromYahoo(4610);
+             
+             
+           int num = Weekweather();
+
+            var results = GetWeatherReportFromYahoo(num);
             foreach (var s in results)
             {
                 Console.WriteLine(s);
             }
             Console.ReadLine();//入力待ち
+        }
+
+        public int Weekweather()
+        {
+            int code = 0;
+            Console.WriteLine("yahoo！週間天気予報");
+            Console.WriteLine("地域コードを入力");
+            Console.WriteLine("1:前橋");
+            Console.WriteLine("2:みなかみ");
+            Console.WriteLine("3:宇都宮");
+            Console.WriteLine("4:水戸");
+            Console.WriteLine("9:その他（直接入力）");
+            switch (int.Parse(Console.ReadLine()))
+            {
+                case 1:
+                    code = 4210;
+                    break;
+                case 2:
+                    code = 4220;
+                    break;
+                case 3:
+                    code = 4110;
+                    break;
+                case 4:
+                    code = 4010;
+                    break;
+                case 9:
+                    Console.WriteLine("コードを入力してください");
+                    code = int.Parse(Console.ReadLine());
+                    break;
+            }
+
+            return code;
         }
 
         //リスト14.15
