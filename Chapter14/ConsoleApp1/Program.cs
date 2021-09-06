@@ -12,6 +12,15 @@ namespace Section04
 {
     class Program
     {
+        Dictionary<string, int> AreaDic = new Dictionary<string, int>()
+        {
+            {"前橋",4210 },
+            {"みなかみ",4220 },
+            {"宇都宮",4110 },
+            {"水戸",4010 },
+        };
+        List<int> cityCode = new List<int>();
+
         static void Main(string[] args)
         {
             
@@ -23,9 +32,38 @@ namespace Section04
         //コンストラクタ
         public Program()
         {
-           int selectArea = Weekweather();
+            
+            //int selectArea = Weekweather();
+            Console.WriteLine("yahoo！週間天気予報");
+            Console.WriteLine();
+            Console.WriteLine("地域コードを入力");
+            int num = 1;
+            foreach (KeyValuePair<string, int> pair in AreaDic)
+            {
+                Console.WriteLine("{0};{1}", num++, pair.Key);
+                cityCode.Add(pair.Value);//コードをリストへ保存
 
-            var results = GetWeatherReportFromYahoo(selectArea);
+            }
+            Console.WriteLine("9:その他（直接入力）");
+            Console.WriteLine();
+
+            Console.Write(">");
+            var selectArea = Console.ReadLine();
+            int pos = int.Parse(selectArea);
+
+            IEnumerable<string> results;
+            if (pos!=9)
+            {
+                results = GetWeatherReportFromYahoo(cityCode[pos - 1]);
+            }
+            else
+            {
+                //その他の場合
+                Console.WriteLine("都市コードを入力してください");
+                var inputCode = Console.ReadLine();
+                results = GetWeatherReportFromYahoo(int.Parse(inputCode));
+            }
+            
             foreach (var s in results)
             {
                 Console.WriteLine(s);
@@ -39,11 +77,18 @@ namespace Section04
             Console.WriteLine("yahoo！週間天気予報");
             Console.WriteLine();
             Console.WriteLine("地域コードを入力");
-            Console.WriteLine("1:前橋");
-            Console.WriteLine("2:みなかみ");
-            Console.WriteLine("3:宇都宮");
-            Console.WriteLine("4:水戸");
+            int num = 1;
+            foreach (KeyValuePair<string,int> pair in AreaDic)
+            {
+                Console.WriteLine("{0};{1}",num++,pair.Key);
+            }
+            //Console.WriteLine("1:前橋");
+            //Console.WriteLine("2:みなかみ");
+            //Console.WriteLine("3:宇都宮");
+            //Console.WriteLine("4:水戸");
             Console.WriteLine("9:その他（直接入力）");
+            Console.WriteLine();
+
             Console.Write(">");
             switch (int.Parse(Console.ReadLine()))
             {
