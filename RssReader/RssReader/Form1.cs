@@ -29,19 +29,21 @@ namespace RssReader
         {
             using (var wc = new WebClient())
             {
-                wc.Headers.Add("Content-type", "charset=UTF-8");
-                var uriString = string.Format(
-                    uri);
-                var stream = wc.OpenRead(uriString);
+                var stream = wc.OpenRead(uri);
 
                 XDocument xdoc = XDocument.Load(stream);
                 var results = xdoc.Root.Descendants("title");
                 foreach (var news in results)
                 {
-                    string s = Regex.Replace(news.Value, "【|】", "");
-                    lbTitles.Items.Add(s);
+                    lbTitles.Items.Add(news);
                 }
             }
+        }
+
+        private void lbTitles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+
         }
     }
 }
