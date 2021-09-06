@@ -32,7 +32,6 @@ namespace RssReader
                 wc.Headers.Add("Content-type", "charset=UTF-8");
                 var uriString = string.Format(
                     uri);
-                var url = new Uri(uri);
                 var stream = wc.OpenRead(uriString);
 
                 XDocument xdoc = XDocument.Load(stream);
