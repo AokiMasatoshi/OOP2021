@@ -163,7 +163,7 @@ namespace Section04
             {
                 wc.Headers.Add("Content-type", "charset=UTF-8");
                 var uriString = string.Format(
-                    @"http://rss.weather.yahoo.co.jp/rss/days/{0}.xml", cityCode);
+                    @"http://rss.weather.yahoo.co.jp/rss/days/", cityCode);
                 var url = new Uri(uriString);
                 var stream = wc.OpenRead(url);
 

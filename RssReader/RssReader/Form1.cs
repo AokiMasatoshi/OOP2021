@@ -22,28 +22,31 @@ namespace RssReader
 
         private void btRead_Click(object sender, EventArgs e)
         {
-            GetNewsReportFromYahoo(tbUrl.Text);
+            GetNewsReportFromYahoo(tbUrl.Text); 
             
         }
         private void GetNewsReportFromYahoo(string uri)
         {
             using (var wc = new WebClient())
             {
+                wc.Headers.Add("Content-type", "charset=UTF-8");
                 var stream = wc.OpenRead(uri);
-
                 XDocument xdoc = XDocument.Load(stream);
                 var results = xdoc.Root.Descendants("title");
                 foreach (var news in results)
                 {
-                    lbTitles.Items.Add(news);
+                    
+                    lbTitles.Items.Add(news.Value);
                 }
             }
         }
 
-        private void lbTitles_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
 
+        private void lbTitles_MouseClick(object sender, MouseEventArgs e)
+        {
+            
         }
+
+        
     }
 }
