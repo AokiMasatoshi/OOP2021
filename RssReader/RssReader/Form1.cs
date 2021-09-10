@@ -27,8 +27,6 @@ namespace RssReader
         private void btRead_Click(object sender, EventArgs e)
         {
             GetRssTitle(tbUrl.Text);
-
-
         }
         private void GetRssTitle(string uri)
         {
@@ -46,11 +44,8 @@ namespace RssReader
                     PubDate = (DateTime)x.Element("pubDate"),
                     Description = (string)x.Element("description"),
                 });
-
-                foreach (var item in items)
-                    
+                foreach (var item in items)   
                 {
-                   
                     lbTitles.Items.Add(item.Title);
                     link.Add(item.Link);
                     desc.Add(item.Description);
