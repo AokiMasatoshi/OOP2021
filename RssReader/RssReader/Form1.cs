@@ -16,7 +16,9 @@ namespace RssReader
 {
     public partial class Form1 : Form
     {
+        IEnumerable<ItemData> items = null;
         List<string> link = new List<string>();
+        List<string> desc = new List<string>();
         public Form1()
         {
             InitializeComponent();
@@ -37,24 +39,28 @@ namespace RssReader
                 var stream = wc.OpenRead(uri);
 
                 XDocument xdoc = XDocument.Load(stream);
-                var linkList = xdoc.Root.Descendants("link");
-                var results = xdoc.Root.Descendants("title");
-                foreach (var news in results)
+                items = xdoc.Root.Descendants("item").Select(x => new ItemData
                 {
+                    Title = (string)x.Element("title"),
+                    Link = (string)x.Element("link"),
+                    PubDate = (DateTime)x.Element("pubDate"),
+                    Description = (string)x.Element("description"),
+                });
 
-                    lbTitles.Items.Add(news.Value);
-                }
-                foreach (var links in linkList)
+                foreach (var item in items)
+                    
                 {
-
-
-                    link.Add(links.Value);
+                   
+                    lbTitles.Items.Add(item.Title);
+                    link.Add(item.Link);
+                    desc.Add(item.Description);
                 }
             }
         }
 
         private void lbTitles_MouseClick(object sender, MouseEventArgs e)
         {
+            label2.Text = desc[lbTitles.SelectedIndex];
             wbBrowser.Url = new Uri(link[lbTitles.SelectedIndex]);
         }
 
