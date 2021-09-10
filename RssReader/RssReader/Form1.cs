@@ -24,34 +24,38 @@ namespace RssReader
 
         private void btRead_Click(object sender, EventArgs e)
         {
-            GetNewsReportFromYahoo(tbUrl.Text);
+            GetRssTitle(tbUrl.Text);
+           
 
         }
-        private void GetNewsReportFromYahoo(string uri)
+        private void GetRssTitle(string uri)
         {
             using (var wc = new WebClient())
             {
                 wc.Headers.Add("Content-type", "charset=UTF-8");
+
                 var stream = wc.OpenRead(uri);
+
                 XDocument xdoc = XDocument.Load(stream);
-                var results2 = xdoc.Root.Descendants("link");
+                var linkList = xdoc.Root.Descendants("link");
                 var results = xdoc.Root.Descendants("title");
                 foreach (var news in results)
                 {
 
                     lbTitles.Items.Add(news.Value);
-                    
                 }
-                foreach (var item in results2)
+                foreach (var links in linkList)
                 {
-                    link.Add(item.Value);
+
+                    
+                    link.Add(links.Value);
                 }
             }
         }
 
         private void lbTitles_MouseClick(object sender, MouseEventArgs e)
-        {
-            wbBrowser.Url = link[lbTitles.SelectedIndex];
+        { 
+            wbBrowser.Url = new Uri(link[lbTitles.SelectedIndex]);
         }
 
         

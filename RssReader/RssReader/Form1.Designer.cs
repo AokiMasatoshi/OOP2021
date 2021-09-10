@@ -72,7 +72,7 @@ namespace RssReader
             this.wbBrowser.ScriptErrorsSuppressed = true;
             this.wbBrowser.Size = new System.Drawing.Size(603, 483);
             this.wbBrowser.TabIndex = 3;
-            this.wbBrowser.Url = new System.Uri("", System.UriKind.Relative);
+            this.wbBrowser.Url = new System.Uri("https://news.yahoo.co.jp/pickup/6404093?source=rss", System.UriKind.Absolute);
             // 
             // btRead
             // 
