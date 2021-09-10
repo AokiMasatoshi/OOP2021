@@ -25,7 +25,7 @@ namespace RssReader
         private void btRead_Click(object sender, EventArgs e)
         {
             GetRssTitle(tbUrl.Text);
-           
+
 
         }
         private void GetRssTitle(string uri)
@@ -47,17 +47,17 @@ namespace RssReader
                 foreach (var links in linkList)
                 {
 
-                    
+
                     link.Add(links.Value);
                 }
             }
         }
 
         private void lbTitles_MouseClick(object sender, MouseEventArgs e)
-        { 
+        {
             wbBrowser.Url = new Uri(link[lbTitles.SelectedIndex]);
         }
 
-        
+
     }
 }

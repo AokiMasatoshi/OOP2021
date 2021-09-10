@@ -34,6 +34,7 @@ namespace RssReader
             this.lbTitles = new System.Windows.Forms.ListBox();
             this.wbBrowser = new System.Windows.Forms.WebBrowser();
             this.btRead = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -72,7 +73,7 @@ namespace RssReader
             this.wbBrowser.ScriptErrorsSuppressed = true;
             this.wbBrowser.Size = new System.Drawing.Size(603, 483);
             this.wbBrowser.TabIndex = 3;
-            this.wbBrowser.Url = new System.Uri("https://news.yahoo.co.jp/pickup/6404093?source=rss", System.UriKind.Absolute);
+            this.wbBrowser.Url = new System.Uri("", System.UriKind.Relative);
             // 
             // btRead
             // 
@@ -84,11 +85,22 @@ namespace RssReader
             this.btRead.UseVisualStyleBackColor = true;
             this.btRead.Click += new System.EventHandler(this.btRead_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("MS UI Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label2.Location = new System.Drawing.Point(293, 57);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(67, 24);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "label2";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(970, 614);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btRead);
             this.Controls.Add(this.wbBrowser);
             this.Controls.Add(this.lbTitles);
@@ -108,6 +120,7 @@ namespace RssReader
         private System.Windows.Forms.ListBox lbTitles;
         private System.Windows.Forms.WebBrowser wbBrowser;
         private System.Windows.Forms.Button btRead;
+        private System.Windows.Forms.Label label2;
     }
 }
 
