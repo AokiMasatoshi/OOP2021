@@ -55,8 +55,13 @@ namespace RssReader
 
         private void lbTitles_MouseClick(object sender, MouseEventArgs e)
         {
+            
             lbldesc.Text = desc[lbTitles.SelectedIndex];
-            wbBrowser.Url = new Uri(link[lbTitles.SelectedIndex]);
+
+            string links = (items.ToArray())[lbTitles.SelectedIndex].Link;
+            wbBrowser.Url = new Uri(links);
+        
+            //wbBrowser.Url = new Uri(link[lbTitles.SelectedIndex]);
         }
 
 
