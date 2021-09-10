@@ -60,7 +60,7 @@ namespace RssReader
 
         private void lbTitles_MouseClick(object sender, MouseEventArgs e)
         {
-            label2.Text = desc[lbTitles.SelectedIndex];
+            lbldesc.Text = desc[lbTitles.SelectedIndex];
             wbBrowser.Url = new Uri(link[lbTitles.SelectedIndex]);
         }
 
