@@ -13,20 +13,13 @@ namespace RssReader
     public partial class Form2 : Form
     {
         List<string> linkCode = null;
-        List<string> descCode = null;
         int titleSelect = 0;
 
-        public Form2(List<string> link, List<string> desc,int title)
+        public Form2(List<string> link, int title)
         {
             InitializeComponent();
             linkCode = link;
-            descCode = desc;
             titleSelect = title;
-
-        }
-
-        private void wbBrowser2_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
-        {
 
         }
 

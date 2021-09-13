@@ -70,7 +70,7 @@ namespace RssReader
 
         private void btWeb_Click(object sender, EventArgs e)
         {
-            var wbForm= new Form2(link,desc,titleSelect);
+            var wbForm= new Form2(link,titleSelect);
             wbForm.Show();
             //webBrowser出力
         }

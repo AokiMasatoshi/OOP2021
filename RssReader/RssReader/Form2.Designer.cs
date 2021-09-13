@@ -40,9 +40,7 @@ namespace RssReader
             this.wbBrowser2.MinimumSize = new System.Drawing.Size(20, 20);
             this.wbBrowser2.Name = "wbBrowser2";
             this.wbBrowser2.Size = new System.Drawing.Size(795, 386);
-            this.wbBrowser2.TabIndex = 0;
-            this.wbBrowser2.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.wbBrowser2_DocumentCompleted);
-            // 
+            this.wbBrowser2.TabIndex = 0;             
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(172, 8);
