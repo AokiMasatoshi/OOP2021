@@ -14,11 +14,12 @@ using System.Xml.Linq;
 
 namespace RssReader
 {
-    public partial class Form1 : Form
+    public partial class Form1 : Form 
     {
         IEnumerable<ItemData> items = null;
         List<string> link = new List<string>();
         List<string> desc = new List<string>();
+        int titleSelect = 0;
         public Form1()
         {
             InitializeComponent();
@@ -59,13 +60,19 @@ namespace RssReader
         {
             
             lbldesc.Text = desc[lbTitles.SelectedIndex];
+            lbPubDate.Text = (items.ToArray())[lbTitles.SelectedIndex].PubDate.ToString();
+            titleSelect = lbTitles.SelectedIndex;
+            //string links = (items.ToArray())[titleSelect].Link;
+            //wbBrowser.Url = new Uri(links);
 
-            string links = (items.ToArray())[lbTitles.SelectedIndex].Link;
-            wbBrowser.Url = new Uri(links);
-        
             //wbBrowser.Url = new Uri(link[lbTitles.SelectedIndex]);
         }
 
-       
+        private void btWeb_Click(object sender, EventArgs e)
+        {
+            var wbForm= new Form2(link,desc,titleSelect);
+            wbForm.Show();
+            //webBrowser出力
+        }
     }
 }
