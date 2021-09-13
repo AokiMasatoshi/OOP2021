@@ -59,9 +59,9 @@ namespace RssReader
             // 
             this.lbTitles.FormattingEnabled = true;
             this.lbTitles.ItemHeight = 15;
-            this.lbTitles.Location = new System.Drawing.Point(17, 83);
+            this.lbTitles.Location = new System.Drawing.Point(17, 159);
             this.lbTitles.Name = "lbTitles";
-            this.lbTitles.Size = new System.Drawing.Size(274, 484);
+            this.lbTitles.Size = new System.Drawing.Size(274, 409);
             this.lbTitles.TabIndex = 2;
             this.lbTitles.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lbTitles_MouseClick);
             // 
@@ -87,11 +87,11 @@ namespace RssReader
             // 
             // lbldesc
             // 
-            this.lbldesc.AutoSize = true;
-            this.lbldesc.Font = new System.Drawing.Font("MS UI Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.lbldesc.Location = new System.Drawing.Point(14, 63);
+            this.lbldesc.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lbldesc.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lbldesc.Location = new System.Drawing.Point(14, 48);
             this.lbldesc.Name = "lbldesc";
-            this.lbldesc.Size = new System.Drawing.Size(0, 17);
+            this.lbldesc.Size = new System.Drawing.Size(277, 108);
             this.lbldesc.TabIndex = 5;
             // 
             // Form1

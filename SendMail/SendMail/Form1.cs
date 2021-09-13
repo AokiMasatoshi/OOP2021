@@ -49,5 +49,10 @@ namespace SendMail
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void tbMessage_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

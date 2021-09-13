@@ -23,6 +23,8 @@ namespace RssReader
         {
             InitializeComponent();
         }
+       
+
 
         private void btRead_Click(object sender, EventArgs e)
         {
@@ -64,6 +66,6 @@ namespace RssReader
             //wbBrowser.Url = new Uri(link[lbTitles.SelectedIndex]);
         }
 
-
+       
     }
 }

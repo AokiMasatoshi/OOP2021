@@ -92,6 +92,7 @@ namespace SendMail
             this.tbMessage.Name = "tbMessage";
             this.tbMessage.Size = new System.Drawing.Size(581, 294);
             this.tbMessage.TabIndex = 1;
+            this.tbMessage.TextChanged += new System.EventHandler(this.tbMessage_TextChanged);
             // 
             // btSend
             // 
