@@ -19,10 +19,11 @@ namespace RssReader
         IEnumerable<ItemData> items = null;
         List<string> link = new List<string>();
         List<string> desc = new List<string>();
-        int titleSelect = 0;
+        int titleSelect = 0; 
         public Form1()
         {
             InitializeComponent();
+            btWeb.Enabled = false;
         }
        
 
@@ -62,15 +63,16 @@ namespace RssReader
             lbldesc.Text = desc[lbTitles.SelectedIndex];
             lbPubDate.Text = (items.ToArray())[lbTitles.SelectedIndex].PubDate.ToString();
             titleSelect = lbTitles.SelectedIndex;
-            //string links = (items.ToArray())[titleSelect].Link;
-            //wbBrowser.Url = new Uri(links);
+            btWeb.Enabled = true;
+            string links = (items.ToArray())[titleSelect].Link;
+            Uri URL  = new Uri(links);
 
             //wbBrowser.Url = new Uri(link[lbTitles.SelectedIndex]);
         }
 
         private void btWeb_Click(object sender, EventArgs e)
         {
-            var wbForm= new Form2(link,titleSelect);
+            var wbForm= new Form2((items.ToArray())[titleSelect].Link);
             wbForm.Show();
             //webBrowser出力
         }

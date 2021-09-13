@@ -12,25 +12,18 @@ namespace RssReader
 {
     public partial class Form2 : Form
     {
-        List<string> linkCode = null;
-        int titleSelect = 0;
+        Uri urlCode;
 
-        public Form2(List<string> link, int title)
+        public Form2(string url)
         {
             InitializeComponent();
-            linkCode = link;
-            titleSelect = title;
-
+            this.urlCode = new Uri(url); 
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            wbGet(linkCode);
+            wbBrowser2.Url = urlCode;
         }
 
-        private void wbGet(List<string> linkCode)
-        {
-            wbBrowser2.Url = new Uri(linkCode[titleSelect]);
-        }
     }
 }
