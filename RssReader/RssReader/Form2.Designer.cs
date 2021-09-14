@@ -41,6 +41,7 @@ namespace RssReader
             this.wbBrowser2.Name = "wbBrowser2";
             this.wbBrowser2.Size = new System.Drawing.Size(795, 386);
             this.wbBrowser2.TabIndex = 0;
+            this.wbBrowser2.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.wbBrowser2_DocumentCompleted);
             // 
             // btMoveOn
             // 
@@ -54,7 +55,7 @@ namespace RssReader
             // 
             // btReturn
             // 
-            this.btReturn.Location = new System.Drawing.Point(12, 8);
+            this.btReturn.Location = new System.Drawing.Point(21, 8);
             this.btReturn.Name = "btReturn";
             this.btReturn.Size = new System.Drawing.Size(128, 44);
             this.btReturn.TabIndex = 1;
