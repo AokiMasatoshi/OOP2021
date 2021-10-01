@@ -34,7 +34,12 @@ namespace Exercise3 {
 
             var lines = File.ReadLines(inputPath);
             var filePath = outputPath;
-            using
+            using (var writer = new StreamWriter(filePath, append: true)) {
+                foreach (var line in lines) {
+                    
+
+                }
+            }
 
 
 

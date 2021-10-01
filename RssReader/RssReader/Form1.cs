@@ -76,5 +76,15 @@ namespace RssReader
             wbForm.Show();
             //webBrowser出力
         }
+
+        private void lbTitles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbUrl_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
