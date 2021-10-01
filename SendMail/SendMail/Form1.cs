@@ -9,6 +9,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace SendMail
 {
@@ -20,6 +21,7 @@ namespace SendMail
         public Form1()
         {
             InitializeComponent();
+            XElement xml = XElement.Load()
         }
 
         private void btSend_Click(object sender, EventArgs e)
@@ -32,11 +34,11 @@ namespace SendMail
                 mailMessage.From = new MailAddress(settings.MailAddr) ;
                 //宛先（To）
                 mailMessage.To.Add(tbTo.Text);
-                if (tbCC.Text!=null)
+                if (tbCC.Text!="")
                 {
                     mailMessage.CC.Add(tbCC.Text);
                 }
-                if (tbBCC.Text!=null)
+                if (tbBCC.Text!="")
                 {
                     mailMessage.Bcc.Add(tbBCC.Text);
                 }
@@ -53,14 +55,33 @@ namespace SendMail
                 smtpClient.Host = settings.Host;
                 smtpClient.Port = settings.Port;
                 smtpClient.EnableSsl = settings.Ssl;
-                smtpClient.Send(mailMessage);
+                // smtpClient.Send(mailMessage);
+                //送信完了時に呼ばれるイベントハンドラの登録
+                smtpClient.SendCompleted += SmtpClient_SendCompleted;
+                //smtpClient.SendCompleted += new SendCompletedEventHandler(SmtpClient_SendCompleted);  古い考え
+                string userState = "Send";
+                smtpClient.SendAsync(mailMessage,userState);
+                
 
-                MessageBox.Show("送信完了");
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+        //送信が完了すると呼ばれるコールバックメソッド
+        private void SmtpClient_SendCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            if (e.Error!=null)
+            {
+                MessageBox.Show(e.Error.Message);
+            }
+            else
+            {
+                MessageBox.Show("送信完了");
+            }
+            
         }
 
         private void btConfig_Click(object sender, EventArgs e)
