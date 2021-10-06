@@ -99,10 +99,15 @@ namespace SendMail
         }
         public void Readxml()
         {
+            
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
             using (XmlReader reader = XmlReader.Create("mailsetting.xml"))
             {
                 var serializer = new DataContractSerializer(typeof(Settings));
-
+                settings = serializer.ReadObject(reader) as Settings;
             }
         }
     }
