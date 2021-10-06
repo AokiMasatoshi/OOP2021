@@ -6,9 +6,11 @@ using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using System.Xml.Linq;
 
 namespace SendMail
@@ -21,7 +23,14 @@ namespace SendMail
         public Form1()
         {
             InitializeComponent();
-            XElement xml = XElement.Load()
+            //if ()
+            //{
+                
+            //}
+                configForm.ShowDialog();
+            
+            
+
         }
 
         private void btSend_Click(object sender, EventArgs e)
@@ -87,6 +96,14 @@ namespace SendMail
         private void btConfig_Click(object sender, EventArgs e)
         {
             configForm.ShowDialog(); 
+        }
+        public void Readxml()
+        {
+            using (XmlReader reader = XmlReader.Create("mailsetting.xml"))
+            {
+                var serializer = new DataContractSerializer(typeof(Settings));
+
+            }
         }
     }
 }

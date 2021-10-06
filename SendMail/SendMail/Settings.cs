@@ -8,7 +8,7 @@ using System.Xml.Linq;
 namespace SendMail
 {
     public class Settings
-    {
+    {//[Serializable]
         private static Settings instance = null;
         public int Port { get; set; }//ポート番号
         public string Host { get; set; }//ホスト名
