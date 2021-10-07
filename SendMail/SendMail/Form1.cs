@@ -23,14 +23,7 @@ namespace SendMail
         public Form1()
         {
             InitializeComponent();
-            //if ()
-            //{
-                
-            //}
-                configForm.ShowDialog();
-            
-            
-
+            configForm.ShowDialog();            
         }
 
         private void btSend_Click(object sender, EventArgs e)
@@ -97,17 +90,20 @@ namespace SendMail
         {
             configForm.ShowDialog(); 
         }
-        public void Readxml()
-        {
-            
-        }
 
+        //XMLファイルを読み込む
         private void Form1_Load(object sender, EventArgs e)
         {
             using (XmlReader reader = XmlReader.Create("mailsetting.xml"))
             {
                 var serializer = new DataContractSerializer(typeof(Settings));
-                settings = serializer.ReadObject(reader) as Settings;
+                var readSettings= serializer.ReadObject(reader) as Settings;
+                settings.Host = readSettings.Host;
+                settings.MailAddr = readSettings.MailAddr;
+                settings.Port = readSettings.Port;
+                settings.Pass = readSettings.Pass;
+                settings.Ssl = readSettings.Ssl;
+             
             }
         }
     }

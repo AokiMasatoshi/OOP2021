@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace SendMail
 {
@@ -17,7 +18,6 @@ namespace SendMail
        private Settings settings = Settings.getInstance();
         public ConfigForm()
         {
-
             InitializeComponent();
         }
         
@@ -35,13 +35,12 @@ namespace SendMail
         private void btApply_Click(object sender, EventArgs e)
         {
             SettingRegist();
-            sendMailAdd();
+           
         }
 
         private void btOK_Click(object sender, EventArgs e)
         {
             SettingRegist();
-            sendMailAdd();
             this.Close();
         }
 
@@ -57,6 +56,18 @@ namespace SendMail
             settings.MailAddr = tbUserName.Text;
             settings.Pass = tbPass.Text;
             settings.Ssl = cbSsl.Checked;
+            var configSettings = new XmlWriterSettings
+            {
+                Encoding = new System.Text.UTF8Encoding(false),
+                Indent = true,
+                IndentChars = "  ",
+            };
+
+            using (var writer = XmlWriter.Create("mailsetting.xml", configSettings))
+            {
+                var serializer = new DataContractSerializer(settings.GetType());
+                serializer.WriteObject(writer, settings);
+            }
         }
         private void sendMailAdd()
         {
@@ -73,6 +84,15 @@ namespace SendMail
                 serializer.WriteObject(writer, settings);
             }
         }
-       
+        //設定画面をロードすると一度だけ実行されるイベントハンドラ
+        private void ConfigForm_Load(object sender, EventArgs e)
+        {
+            tbHost.Text = settings.Host;
+            tbPass.Text = settings.Pass;
+            tbPort.Text = settings.Port.ToString();
+            tbUserName.Text = settings.MailAddr;
+            tbSender.Text = settings.MailAddr;
+            cbSsl.Checked = settings.Ssl;
+        }
     }
 }
