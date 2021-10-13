@@ -23,11 +23,17 @@ namespace SendMail
         public Form1()
         {
             InitializeComponent();
-            configForm.ShowDialog();            
+                        
         }
 
         private void btSend_Click(object sender, EventArgs e)
         {
+
+            if (!Settings.Set)
+            {
+                MessageBox.Show("送信情報を設定してください");
+                return;
+            }
             try
             {
                 //メール送信のためのインスタンスを生成
@@ -35,6 +41,11 @@ namespace SendMail
                 //差出人アドレス
                 mailMessage.From = new MailAddress(settings.MailAddr) ;
                 //宛先（To）
+                if (tbTo.Text =="")
+                {
+                    MessageBox.Show("アドレスが未入力です");
+                    return;
+                }
                 mailMessage.To.Add(tbTo.Text);
                 if (tbCC.Text!="")
                 {
@@ -50,6 +61,11 @@ namespace SendMail
                 mailMessage.Subject = tbTitle.Text;
                 //本文
                 mailMessage.Body = tbMessage.Text;
+                if (tbMessage.Text == null)
+                {
+                    MessageBox.Show("本文が未入力です");
+                    return;
+                }
                 //SMTPを使ってメールを送信する
                 SmtpClient smtpClient = new SmtpClient();
                 //メール送信のための認証情報を設定（ユーザー名、パスワード）
@@ -62,8 +78,10 @@ namespace SendMail
                 smtpClient.SendCompleted += SmtpClient_SendCompleted;
                 //smtpClient.SendCompleted += new SendCompletedEventHandler(SmtpClient_SendCompleted);  古い考え
                 string userState = "Send";
+
+                clear();
                 smtpClient.SendAsync(mailMessage,userState);
-                
+
 
                 
             }
@@ -94,17 +112,33 @@ namespace SendMail
         //XMLファイルを読み込む
         private void Form1_Load(object sender, EventArgs e)
         {
-            using (XmlReader reader = XmlReader.Create("mailsetting.xml"))
+            //起動時に送信情報が未設定の場合設定画面を表示する
+            if (!Settings.Set)
             {
-                var serializer = new DataContractSerializer(typeof(Settings));
-                var readSettings= serializer.ReadObject(reader) as Settings;
-                settings.Host = readSettings.Host;
-                settings.MailAddr = readSettings.MailAddr;
-                settings.Port = readSettings.Port;
-                settings.Pass = readSettings.Pass;
-                settings.Ssl = readSettings.Ssl;
-             
+                configForm.ShowDialog();
             }
         }
+
+        private void 終了XToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void 新規作成NToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clear();
+        }
+
+
+        public void clear()
+        {
+            tbTo.Text = "";
+            tbBCC.Text = "";
+            tbCC.Text = "";
+            tbTitle.Text = "";
+            tbMessage.Text = "";
+        }
+        
+        
     }
 }

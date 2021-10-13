@@ -34,13 +34,15 @@ namespace SendMail
 
         private void btApply_Click(object sender, EventArgs e)
         {
-            SettingRegist();
-           
+            //settingオブジェクトに入力データを渡して登録を行う
+            settings.setSendConfig(tbHost.Text, int.Parse(tbPort.Text),
+                                tbUserName.Text, tbPass.Text, cbSsl.Checked);
+
         }
 
         private void btOK_Click(object sender, EventArgs e)
-        {
-            SettingRegist();
+        { 
+            btApply_Click(sender, e);
             this.Close();
         }
 
@@ -49,26 +51,10 @@ namespace SendMail
             
             this.Close();
         }
-        private void SettingRegist()
-        {
-            settings.Host = tbHost.Text;
-            settings.Port = int.Parse(tbPort.Text);
-            settings.MailAddr = tbUserName.Text;
-            settings.Pass = tbPass.Text;
-            settings.Ssl = cbSsl.Checked;
-            var configSettings = new XmlWriterSettings
-            {
-                Encoding = new System.Text.UTF8Encoding(false),
-                Indent = true,
-                IndentChars = "  ",
-            };
-
-            using (var writer = XmlWriter.Create("mailsetting.xml", configSettings))
-            {
-                var serializer = new DataContractSerializer(settings.GetType());
-                serializer.WriteObject(writer, settings);
-            }
-        }
+        //private void SettingRegist()
+        //{
+           
+        //}
         private void sendMailAdd()
         {
             var configSettings = new XmlWriterSettings
