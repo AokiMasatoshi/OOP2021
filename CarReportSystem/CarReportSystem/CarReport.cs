@@ -44,8 +44,4 @@ namespace CarReportSystem {
 
         }
     }
-
-    
-   
-
 }
