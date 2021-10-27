@@ -54,12 +54,12 @@ namespace SampleEntityFramework
             //    Console.ReadLine();
             // Console.WriteLine("#1.1");
             // Exercise13_1_1();
-            //Console.WriteLine("#1.2");
-            //Exercise13_1_2();
-            //Console.WriteLine("#1.3");
-            //Exercise13_1_3();
-           // Console.WriteLine("#1.4");
-            //Exercise13_1_4();
+            Console.WriteLine("#1.2");
+            Exercise13_1_2();
+            Console.WriteLine("#1.3");
+            Exercise13_1_3();
+            Console.WriteLine("#1.4");
+            Exercise13_1_4();
             Console.WriteLine("#1.5");
             Exercise13_1_5();
             Console.ReadLine();
@@ -126,21 +126,15 @@ namespace SampleEntityFramework
 
             using (var db = new BooksDbContext())
             {
-                IEnumerable<Book> books = db.Books.ToList();
-                int i = 0;
+                IEnumerable<Book> books = db.Books;
                 foreach (var book in books)
                 {
-                        Console.WriteLine(book.Title, book.PublishedYear, book.Author.Name);
-                        
-
+                    Console.WriteLine(book.Title);
+                    Console.WriteLine(book.PublishedYear);
+                    Console.WriteLine(book.Author.Name);
+                    Console.WriteLine(" ");
                 }
             }
-        
-    
-            
-
-            
-
         }
 
         private static void Exercise13_1_3()
@@ -164,13 +158,20 @@ namespace SampleEntityFramework
         {
             using (var db = new BooksDbContext())
             {
-                var books =  db.Books.OrderBy(x=>x.PublishedYear).ToList();
-                for (int i = 0; i < 3; i++)
+                var books =  db.Books.OrderBy(x=>x.PublishedYear).Take(3);
+
+                foreach (var book in books)
                 {
-                    Console.WriteLine(books[i].Title);
-                    Console.WriteLine(books[i].PublishedYear);
-                    Console.WriteLine(books[i].Author.Name);
+                    Console.WriteLine(book.Title);
+                    Console.WriteLine(book.PublishedYear);
+                    Console.WriteLine(book.Author.Name);
                 }
+                //for (int i = 0; i < 3; i++)
+                //{
+                //    Console.WriteLine(books[i].Title);
+                //    Console.WriteLine(books[i].PublishedYear);
+                //    Console.WriteLine(books[i].Author.Name);
+                //}
 
                 //foreach (var book in books)
                 //{
