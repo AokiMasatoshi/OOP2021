@@ -71,7 +71,7 @@ namespace CarReportSystem {
             {
                 if (((RadioButton)rb).Checked)
                 {
-                    return (CarReport.MakerGroup)int.Parse(((string)((RadioButton)rb).Tag));
+                   return (CarReport.MakerGroup)int.Parse((string)((RadioButton)rb).Tag);
                 }
             }
             return CarReport.MakerGroup.その他;
@@ -143,10 +143,10 @@ namespace CarReportSystem {
                     rbNissan.Checked = true;
                     break;
                 case CarReport.MakerGroup.外国車:
-                    rbToyota.Checked = true;
+                    rbImport.Checked = true;
                     break;
                 case CarReport.MakerGroup.その他:
-                    rbToyota.Checked = true;
+                    rbOther.Checked = true;
                     break;
                 default:
                     break;
@@ -155,16 +155,10 @@ namespace CarReportSystem {
 
         private void btDateDelete_Click(object sender, EventArgs e)
         {
-            //listCarReport.RemoveAt(dgvRegistData.CurrentRow.Index);
-
-
         }
 
         private void btDataCorrect_Click(object sender, EventArgs e)
         {
-            //listCarReport[dgvRegistData.CurrentRow.Index].UpDate(dtpDate.Value, cbAuthor.Text, SelectedGroup(), cbCarName.Text, tbReport.Text, pbPicture.Image);
-            //dgvRegistData.Refresh();//コントロールの強制再描画
-
         }
         //更新ボタンイベント処理
         private void btUpDate_Click(object sender, EventArgs e)
@@ -236,6 +230,15 @@ namespace CarReportSystem {
         }
         private void fmMain_Load(object sender, EventArgs e)
         {
+            carReportDataGridView.Columns[0].Visible = false;
+            carReportDataGridView.Columns[1].HeaderText = "日付";
+            carReportDataGridView.Columns[2].HeaderText = "記録者";
+            carReportDataGridView.Columns[3].HeaderText = "メーカー";
+            carReportDataGridView.Columns[4].HeaderText = "車種";
+            carReportDataGridView.Columns[5].HeaderText = "レポート";
+            carReportDataGridView.Columns[6].HeaderText = "画像";
+
+
 
             // dgvRegistData.Columns[5].Visible = false;
         }
@@ -277,6 +280,22 @@ namespace CarReportSystem {
             byte[] b = (byte[])imgconv.ConvertTo(img, typeof(byte[]));
             return b;
         }
+
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+        {
+            dtpDate.Value = DateTime.Now;
+            cbAuthor.Text = "";
+            cbCarName.Text = "";
+            setMakerRadioButton(CarReport.MakerGroup.その他);
+            pbPicture.Image = null;
+            tbReport.Text = "";
+        }
+
+        private void carReportDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+
+        }
+        
     }
 }
 
