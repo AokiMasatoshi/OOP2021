@@ -61,7 +61,7 @@ namespace SendMail
                 mailMessage.Subject = tbTitle.Text;
                 //本文
                 mailMessage.Body = tbMessage.Text;
-                if (tbMessage.Text == null)
+                if (tbMessage.Text == null　|| tbMessage.Text == string.Empty)
                 {
                     MessageBox.Show("本文が未入力です");
                     return;
