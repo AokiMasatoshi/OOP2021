@@ -102,15 +102,7 @@ namespace CarReportSystem {
         {
             //選択された行のデータ取得
             if (e.RowIndex == -1) return;
-
-
-
             CarReport selectedCar = listCarReport[e.RowIndex];
-
-
-
-
-
             //取得したデータを
             dtpDate.Value = selectedCar.Date;
             cbAuthor.Text = selectedCar.Auther;
@@ -153,13 +145,6 @@ namespace CarReportSystem {
             }
         }
 
-        private void btDateDelete_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void btDataCorrect_Click(object sender, EventArgs e)
-        {
-        }
         //更新ボタンイベント処理
         private void btUpDate_Click(object sender, EventArgs e)
         {
@@ -237,6 +222,8 @@ namespace CarReportSystem {
             carReportDataGridView.Columns[4].HeaderText = "車種";
             carReportDataGridView.Columns[5].HeaderText = "レポート";
             carReportDataGridView.Columns[6].HeaderText = "画像";
+            //carReportDataGridView.Columns[6].Visible = false;
+            ssErrerLavel.Text = "";
 
 
 
@@ -250,17 +237,26 @@ namespace CarReportSystem {
             {
                 dtpDate.Value = (DateTime)carReportDataGridView.CurrentRow.Cells[1].Value;//日付
                 cbAuthor.Text = carReportDataGridView.CurrentRow.Cells[2].Value.ToString();
-                setMakerRadioButton((CarReport.MakerGroup)
-                    Enum.Parse(typeof(CarReport.MakerGroup),carReportDataGridView.CurrentRow.Cells[3].Value.ToString())
-                    );   // メーカー（文字列→　列挙型）
+                //setMakerRadioButton((CarReport.MakerGroup)
+                //    Enum.Parse(typeof(CarReport.MakerGroup),carReportDataGridView.CurrentRow.Cells[3].Value.ToString())
+                //    );   // メーカー（文字列→　列挙型）
+                var mk = (CarReport.MakerGroup)
+                    Enum.Parse(typeof(CarReport.MakerGroup), carReportDataGridView.CurrentRow.Cells[3].Value.ToString());
+                setMakerRadioButton(mk);
                 cbCarName.Text = carReportDataGridView.CurrentRow.Cells[4].Value.ToString();
                 tbReport.Text = carReportDataGridView.CurrentRow.Cells[5].Value.ToString();
                 pbPicture.Image = ByteArrayToImage((byte[])carReportDataGridView.CurrentRow.Cells[6].Value);
+                ssErrerLavel.Text = "";
             }
-            catch
+            catch(InvalidCastException)
             {
                 pbPicture.Image = null;
 
+            }
+            catch (Exception ex)
+            {
+                ssErrerLavel.Text = ex.Message;
+               // MessageBox.Show(ex.Message);
             }
         
         
@@ -295,6 +291,7 @@ namespace CarReportSystem {
         {
 
         }
+
         
     }
 }
