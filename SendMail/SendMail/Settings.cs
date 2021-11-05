@@ -52,6 +52,7 @@ namespace SendMail
                 //ファイルがない場合（初回起動時）
                 catch (Exception ex)
                 {
+                    MessageBox.Show("");
                     Set = false;//データ未設定
                 }
             
