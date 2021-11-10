@@ -52,10 +52,10 @@ namespace SendMail
                 //ファイルがない場合（初回起動時）
                 catch (Exception ex)
                 {
-                    MessageBox.Show("");
+                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("XMLファイルを修正してください");
                     Set = false;//データ未設定
                 }
-            
             }
             return instance;
         }
