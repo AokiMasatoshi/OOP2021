@@ -19,7 +19,7 @@ namespace SendMail
     {
         private ConfigForm configForm = new ConfigForm();
         private Settings settings = Settings.getInstance();
-         
+
         public Form1()
         {
             InitializeComponent();
@@ -81,9 +81,6 @@ namespace SendMail
 
                 clear();
                 smtpClient.SendAsync(mailMessage,userState);
-
-
-                
             }
             catch (Exception ex)
             {
