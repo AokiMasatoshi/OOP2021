@@ -235,6 +235,7 @@ namespace CarReportSystem {
             if (carReportDataGridView.CurrentRow == null) return;
             try
             {
+                pbPicture.Image = null;
                 dtpDate.Value = (DateTime)carReportDataGridView.CurrentRow.Cells[1].Value;//日付
                 cbAuthor.Text = carReportDataGridView.CurrentRow.Cells[2].Value.ToString();
                 //setMakerRadioButton((CarReport.MakerGroup)
