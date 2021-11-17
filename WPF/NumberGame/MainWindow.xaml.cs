@@ -25,7 +25,7 @@ namespace NumberGame
         public MainWindow()
         {
             InitializeComponent();
-            ramdom(1, 21);
+            ramdom(1, 26);
         }
         public void ramdom(int min,int max)
         {

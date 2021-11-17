@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NumberGame"
         mc:Ignorable="d"
-        Title="MainWindow" Height="440" Width="410">
+        Title="MainWindow" Height="520" Width="410">
     <Grid Margin="0,0,2,6">
         <Button x:Name="bt1" Content="1" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="80" Click="Button_Click" />
         <Button x:Name="bt2" Content="2" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="80" Margin="80,0,0,0" Click="Button_Click" />
@@ -27,7 +27,12 @@
         <Button x:Name="bt18" Content="18" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="80" Margin="160,240,0,0" Click="Button_Click" />
         <Button x:Name="bt19" Content="19" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="80" Margin="240,240,0,0" Click="Button_Click" />
         <Button x:Name="bt20" Content="20" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="80" Margin="320,240,0,0" Click="Button_Click" />
-        <TextBlock x:Name="tbAns" HorizontalAlignment="Left" Margin="0,320,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="83" Width="400"/>
+        <Button x:Name="bt21" Content="21" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="80" Margin="0,320,0,0" Click="Button_Click" />
+        <Button x:Name="bt22" Content="22" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="80" Margin="80,320,0,0" Click="Button_Click" />
+        <Button x:Name="bt23" Content="23" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="80" Margin="160,320,0,0" Click="Button_Click" />
+        <Button x:Name="bt24" Content="24" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="80" Margin="240,320,0,0" Click="Button_Click" />
+        <Button x:Name="bt25" Content="25" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="80" Margin="320,320,0,0" Click="Button_Click" />
+        <TextBlock x:Name="tbAns" HorizontalAlignment="Left" Margin="0,400,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="83" Width="400"/>
 
     </Grid>
 </Window>
