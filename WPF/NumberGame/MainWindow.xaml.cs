@@ -27,7 +27,7 @@ namespace NumberGame
         DispatcherTimer dispatcherTimer;    // タイマーオブジェクト
         DateTime st;                 // カウント開始時刻
         TimeSpan nts;               // Startボタンが押されてから現在までの経過時間
-        TimeSpan oldtimespan;
+        TimeSpan ots;
 
         public MainWindow()
         {
@@ -44,7 +44,7 @@ namespace NumberGame
         void dispatcherTimer_Tick(object sender, EventArgs e)
         {
             nts = DateTime.Now.Subtract(st);
-            lb1.Content = oldtimespan.Add(nts).ToString(@"mm\:ss\:fff");
+            lb1.Content = ots.Add(nts).ToString(@"mm\:ss\:fff");
         }
         private void TimerStart()
         {
@@ -55,7 +55,7 @@ namespace NumberGame
         // タイマー操作：停止
         private void TimerStop()
         {
-            oldtimespan = oldtimespan.Add(nts);
+            ots = ots.Add(nts);
             dispatcherTimer.Stop();
         }
 
