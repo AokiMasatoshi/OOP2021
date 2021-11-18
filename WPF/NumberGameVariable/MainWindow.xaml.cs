@@ -58,7 +58,7 @@ namespace NumberGameVariable
                     var bt = new Button();
                     bt.Width = MainForm.Width / Columns;
                     bt.Height = MainForm.Height / Rows;
-                    bt.Content = j + 1;
+                    bt.Content = (j + 1) + (i * Rows);
                     bt.FontSize = 20;
                     bt.Click += Bt_Click;
                     Grid.SetRow(bt, i);

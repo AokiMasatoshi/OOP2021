@@ -134,6 +134,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumberGame", "WPF\NumberGam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumberGameVariable", "WPF\NumberGameVariable\NumberGameVariable.csproj", "{70B7D886-DAA5-4BF4-905B-DE77F3FCC0C0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Games", "Games", "{CAFA5616-EFA3-48B2-B2CB-BFC46A274039}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pelmanism", "Games\Pelmanism\Pelmanism.csproj", "{737BA921-7F3E-4127-B4EC-CB0C683AACA8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -312,6 +316,10 @@ Global
 		{70B7D886-DAA5-4BF4-905B-DE77F3FCC0C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70B7D886-DAA5-4BF4-905B-DE77F3FCC0C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70B7D886-DAA5-4BF4-905B-DE77F3FCC0C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{737BA921-7F3E-4127-B4EC-CB0C683AACA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{737BA921-7F3E-4127-B4EC-CB0C683AACA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{737BA921-7F3E-4127-B4EC-CB0C683AACA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{737BA921-7F3E-4127-B4EC-CB0C683AACA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -362,6 +370,7 @@ Global
 		{017A9A3D-2BC7-4801-8A5B-D8CBB992A5D2} = {2AFC1423-C155-486C-A21D-97A417221792}
 		{ED3658FF-2D25-4E64-8814-BBD2754BEA9F} = {2AFC1423-C155-486C-A21D-97A417221792}
 		{70B7D886-DAA5-4BF4-905B-DE77F3FCC0C0} = {2AFC1423-C155-486C-A21D-97A417221792}
+		{737BA921-7F3E-4127-B4EC-CB0C683AACA8} = {CAFA5616-EFA3-48B2-B2CB-BFC46A274039}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7DD04178-3634-43D6-9EF1-0DA6698EA723}
