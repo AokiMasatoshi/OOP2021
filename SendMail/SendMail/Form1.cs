@@ -69,7 +69,8 @@ namespace SendMail
                 //SMTPを使ってメールを送信する
                 SmtpClient smtpClient = new SmtpClient();
                 //メール送信のための認証情報を設定（ユーザー名、パスワード）
-                smtpClient.Credentials= new NetworkCredential(settings.MailAddr, settings.Pass);
+                smtpClient.Credentials
+                    = new NetworkCredential(settings.MailAddr, settings.Pass);
                 smtpClient.Host = settings.Host;
                 smtpClient.Port = settings.Port;
                 smtpClient.EnableSsl = settings.Ssl;
