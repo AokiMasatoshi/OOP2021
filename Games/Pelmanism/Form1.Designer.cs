@@ -32,7 +32,7 @@ namespace Pelmanism
             this.components = new System.ComponentModel.Container();
             this.labelSec = new System.Windows.Forms.Label();
             this.labelGuidance = new System.Windows.Forms.Label();
-            this.buttonStrat = new System.Windows.Forms.Button();
+            this.buttonStart = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
@@ -55,14 +55,15 @@ namespace Pelmanism
             this.labelGuidance.TabIndex = 1;
             this.labelGuidance.Text = "label1";
             // 
-            // buttonStrat
+            // buttonStart
             // 
-            this.buttonStrat.Location = new System.Drawing.Point(173, 276);
-            this.buttonStrat.Name = "buttonStrat";
-            this.buttonStrat.Size = new System.Drawing.Size(77, 23);
-            this.buttonStrat.TabIndex = 2;
-            this.buttonStrat.Text = "スタート";
-            this.buttonStrat.UseVisualStyleBackColor = true;
+            this.buttonStart.Location = new System.Drawing.Point(173, 276);
+            this.buttonStart.Name = "buttonStart";
+            this.buttonStart.Size = new System.Drawing.Size(77, 23);
+            this.buttonStart.TabIndex = 2;
+            this.buttonStart.Text = "スタート";
+            this.buttonStart.UseVisualStyleBackColor = true;
+            this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
             // 
             // timer1
             // 
@@ -72,7 +73,7 @@ namespace Pelmanism
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(459, 311);
-            this.Controls.Add(this.buttonStrat);
+            this.Controls.Add(this.buttonStart);
             this.Controls.Add(this.labelGuidance);
             this.Controls.Add(this.labelSec);
             this.Name = "FormGame";
@@ -87,7 +88,7 @@ namespace Pelmanism
 
         private System.Windows.Forms.Label labelSec;
         private System.Windows.Forms.Label labelGuidance;
-        private System.Windows.Forms.Button buttonStrat;
+        private System.Windows.Forms.Button buttonStart;
         private System.Windows.Forms.Timer timer1;
     }
 }
