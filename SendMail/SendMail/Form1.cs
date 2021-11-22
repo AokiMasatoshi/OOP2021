@@ -56,7 +56,6 @@ namespace SendMail
                     mailMessage.Bcc.Add(tbBCC.Text);
                 }
                 
-                //
                 //件名（タイトル）
                 mailMessage.Subject = tbTitle.Text;
                 //本文
