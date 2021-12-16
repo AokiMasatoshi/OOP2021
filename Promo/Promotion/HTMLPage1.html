@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>アスレティック・ビルバオの試合結果</title>
+</head>
+<body>
+    <h1>アスレティック・ビルバオの試合結果</h1>
+    <p>直近10試合の結果を表示します。</p>
+    <div class="matchresults-end"></div>
+</body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $.ajaxSetup({
+            headers: { "X-Auth-Token": "ここにAPI keyを入れる" }
+        });
+
+        $.getJSON(
+            "//api.football-data.org/v1/teams/77/fixtures", function (json) {
+                //JSON取得後の処理
+            }
+        );
+    });
+
+    //ここにJavaScriptのコード(後述)を書く
+</script>
+</html>
