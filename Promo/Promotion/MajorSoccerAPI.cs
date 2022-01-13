@@ -1,10 +1,12 @@
 ﻿
 using Microsoft.Exchange.WebServices.Data;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using PowerArgs;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Runtime.Serialization.Json;
@@ -29,15 +31,16 @@ namespace Promotion
         {
             var parm = new Dictionary<string, string>();
             parm["rdf:type"] = "api.football-data:";
-            parm["acl:consumerKey"] = ConsumerKey;
-                var url = string.Format("{0}?{1}", EndPointUrl, string.Join("&", parm.Select(p => string.Format("{0}={1}", p.Key, p.Value))));
+            parm["X-Auth-Token"] = ConsumerKey;
+               // var url = string.Format("{0}?{1}", EndPointUrl, string.Join("&", parm.Select(p => string.Format("{0}={1}", p.Key, p.Value))));
+            var jObject = JObject.Parse(File.ReadAllText(ConsumerKey));
             var client = new WebClient()
             {
                 Encoding = Encoding.UTF8
             };
 
 
-            var json = client.DownloadString(url);
+            var json = client.DownloadString(jObject.ToString());
 
             return JsonConvert.DeserializeObject<Soccer>(json);
         }

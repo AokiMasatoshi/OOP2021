@@ -148,6 +148,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Promotion2", "Promo\Promoti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_RadioBotton", "Promo\Test_RadioBotton\Test_RadioBotton.csproj", "{8B717F79-A180-4670-BA9F-25C977E5311C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample01", "Promo\Sample01\Sample01.csproj", "{913D64B2-0FEA-4139-8436-AFE989DF801D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -346,6 +348,10 @@ Global
 		{8B717F79-A180-4670-BA9F-25C977E5311C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B717F79-A180-4670-BA9F-25C977E5311C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B717F79-A180-4670-BA9F-25C977E5311C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{913D64B2-0FEA-4139-8436-AFE989DF801D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{913D64B2-0FEA-4139-8436-AFE989DF801D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{913D64B2-0FEA-4139-8436-AFE989DF801D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{913D64B2-0FEA-4139-8436-AFE989DF801D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -401,6 +407,7 @@ Global
 		{353B9044-68A4-4F11-9786-F5B7792544F1} = {A7E5C008-C820-4162-91F5-E8FB97FD74DB}
 		{FDCE4FC4-45D5-4E22-B7FC-79E0AD471CD8} = {A7E5C008-C820-4162-91F5-E8FB97FD74DB}
 		{8B717F79-A180-4670-BA9F-25C977E5311C} = {A7E5C008-C820-4162-91F5-E8FB97FD74DB}
+		{913D64B2-0FEA-4139-8436-AFE989DF801D} = {A7E5C008-C820-4162-91F5-E8FB97FD74DB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7DD04178-3634-43D6-9EF1-0DA6698EA723}

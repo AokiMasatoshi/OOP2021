@@ -1,11 +1,14 @@
-﻿using System;
+﻿using PowerArgs;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Windows.Forms;
 
 namespace Test_RadioBotton
@@ -30,6 +33,11 @@ namespace Test_RadioBotton
         //フォームのLoadイベントハンドラ
         private void Form1_Load(object sender, System.EventArgs e)
         {
+            string url = "http://example.com/app/search?type=json&q=";
+            string q = HttpUtility.UrlEncode(string.Join(" ", Args));
+            Debug.WriteLine("encoded q: " + q);
+
+
             //ボタンコントロール配列の作成（ここでは5つ作成）
             this.testButtons = new CheckBox[20];
 
