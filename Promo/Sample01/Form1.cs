@@ -12,35 +12,22 @@ namespace Sample01
 {
     public partial class Form1 : Form
     {
-        private static Form2 _instance2;
         private static Form3 _instance3;
-
+        public string SelectTeam = "";
         public string Teamname ="" ;
         private String TeamNames = "リヴァプール,マンチェスターシティ,マンチェスターユナイテッド,アーセナル,チェルシー,トッテナム,ウェストハム,ウルブス,ブライトン ,レスターシティ,サウサンプトン,クリスタル・パレス,ブレントフォード,アストン・ヴィラ,エヴァートン,リーズU,ワトフォード,バーンリー,ニューカッスル,ノリッジ";
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent(); 
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            var form = new Form2(((Button)sender).Text);
-            form.ShowDialog();
+            SelectTeam = ((Button)sender).Text.ToString();
+            var form = new Form2(SelectTeam); 
             Visible = false;
-            //Instance.Show();   
+            form.Show();
         }
-        //public static Form2 Instance
-        //{
-        //    get
-        //    {
-        //        //_instanceがnullまたは破棄されているときは、
-        //        //新しくインスタンスを作成する
-        //        if (_instance2 == null || _instance2.IsDisposed)
-        //        {
-        //            _instance2 = new Form2();
-        //        }
-        //        return _instance2;
-        //    }
-        //}
+        
         public static Form3 Instance3
         {
             get

@@ -38,27 +38,30 @@ namespace Sample01
             // lbPL
             // 
             this.lbPL.FormattingEnabled = true;
-            this.lbPL.ItemHeight = 12;
-            this.lbPL.Location = new System.Drawing.Point(27, 147);
+            this.lbPL.ItemHeight = 15;
+            this.lbPL.Location = new System.Drawing.Point(36, 184);
+            this.lbPL.Margin = new System.Windows.Forms.Padding(4);
             this.lbPL.Name = "lbPL";
-            this.lbPL.Size = new System.Drawing.Size(225, 316);
+            this.lbPL.Size = new System.Drawing.Size(299, 394);
             this.lbPL.TabIndex = 0;
             this.lbPL.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lbPL_MouseClick);
             this.lbPL.SelectedIndexChanged += new System.EventHandler(this.lbPL_SelectedIndexChanged);
             // 
             // wb
             // 
-            this.wb.Location = new System.Drawing.Point(281, 12);
-            this.wb.MinimumSize = new System.Drawing.Size(20, 20);
+            this.wb.Location = new System.Drawing.Point(458, 23);
+            this.wb.Margin = new System.Windows.Forms.Padding(4);
+            this.wb.MinimumSize = new System.Drawing.Size(27, 25);
             this.wb.Name = "wb";
-            this.wb.Size = new System.Drawing.Size(691, 641);
+            this.wb.Size = new System.Drawing.Size(921, 801);
             this.wb.TabIndex = 1;
             // 
             // btback
             // 
-            this.btback.Location = new System.Drawing.Point(27, 576);
+            this.btback.Location = new System.Drawing.Point(36, 720);
+            this.btback.Margin = new System.Windows.Forms.Padding(4);
             this.btback.Name = "btback";
-            this.btback.Size = new System.Drawing.Size(157, 46);
+            this.btback.Size = new System.Drawing.Size(209, 58);
             this.btback.TabIndex = 3;
             this.btback.Text = "戻る";
             this.btback.UseVisualStyleBackColor = true;
@@ -68,22 +71,25 @@ namespace Sample01
             // 
             this.lbTeamName.AutoSize = true;
             this.lbTeamName.Font = new System.Drawing.Font("ＭＳ 明朝", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.lbTeamName.Location = new System.Drawing.Point(23, 49);
+            this.lbTeamName.Location = new System.Drawing.Point(31, 57);
+            this.lbTeamName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbTeamName.Name = "lbTeamName";
-            this.lbTeamName.Size = new System.Drawing.Size(106, 24);
+            this.lbTeamName.Size = new System.Drawing.Size(133, 30);
             this.lbTeamName.TabIndex = 4;
             this.lbTeamName.Text = "チーム名";
             // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1108, 690);
+            this.ClientSize = new System.Drawing.Size(1477, 862);
             this.Controls.Add(this.lbTeamName);
             this.Controls.Add(this.btback);
             this.Controls.Add(this.wb);
             this.Controls.Add(this.lbPL);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form2";
+            this.RightToLeftLayout = true;
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
@@ -96,6 +102,6 @@ namespace Sample01
         private System.Windows.Forms.ListBox lbPL;
         private System.Windows.Forms.Button btback;
         public System.Windows.Forms.WebBrowser wb;
-        private System.Windows.Forms.Label lbTeamName;
+        public System.Windows.Forms.Label lbTeamName;
     }
 }
