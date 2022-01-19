@@ -15,7 +15,7 @@ namespace Sample01
         private static Form3 _instance3;
         public string SelectTeam = "";
         public string Teamname ="" ;
-        private String TeamNames = "リヴァプール,マンチェスターシティ,マンチェスターユナイテッド,アーセナル,チェルシー,トッテナム,ウェストハム,ウルブス,ブライトン ,レスターシティ,サウサンプトン,クリスタル・パレス,ブレントフォード,アストン・ヴィラ,エヴァートン,リーズU,ワトフォード,バーンリー,ニューカッスル,ノリッジ";
+        private String TeamNames = "リヴァプール,マンチェスターシティ,マンチェスターユナイテッド,アーセナル,チェルシー,トッテナム,ウェストハム,ウルブス,ブライトン,レスターシティ,サウサンプトン,クリスタル・パレス,ブレントフォード,アストン・ヴィラ,エヴァートン,リーズU,ワトフォード,バーンリー,ニューカッスル,ノリッジ";
         public Form1()
         {
             InitializeComponent(); 
