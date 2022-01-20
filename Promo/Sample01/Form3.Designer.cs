@@ -29,20 +29,12 @@ namespace Sample01
         /// </summary>
         private void InitializeComponent()
         {
-            this.tbSelect = new System.Windows.Forms.TextBox();
             this.btSearch = new System.Windows.Forms.Button();
             this.wb1 = new System.Windows.Forms.WebBrowser();
             this.label1 = new System.Windows.Forms.Label();
             this.btBack = new System.Windows.Forms.Button();
+            this.cbSelect = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
-            // 
-            // tbSelect
-            // 
-            this.tbSelect.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.tbSelect.Location = new System.Drawing.Point(25, 60);
-            this.tbSelect.Name = "tbSelect";
-            this.tbSelect.Size = new System.Drawing.Size(752, 31);
-            this.tbSelect.TabIndex = 0;
             // 
             // btSearch
             // 
@@ -82,16 +74,25 @@ namespace Sample01
             this.btBack.UseVisualStyleBackColor = true;
             this.btBack.Click += new System.EventHandler(this.btBack_Click);
             // 
+            // cbSelect
+            // 
+            this.cbSelect.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.cbSelect.FormattingEnabled = true;
+            this.cbSelect.Location = new System.Drawing.Point(42, 58);
+            this.cbSelect.Name = "cbSelect";
+            this.cbSelect.Size = new System.Drawing.Size(751, 27);
+            this.cbSelect.TabIndex = 5;
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1064, 673);
+            this.Controls.Add(this.cbSelect);
             this.Controls.Add(this.btBack);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.wb1);
             this.Controls.Add(this.btSearch);
-            this.Controls.Add(this.tbSelect);
             this.Name = "Form3";
             this.Text = "Form3";
             this.ResumeLayout(false);
@@ -100,11 +101,10 @@ namespace Sample01
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox tbSelect;
         private System.Windows.Forms.Button btSearch;
         private System.Windows.Forms.WebBrowser wb1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btBack;
+        private System.Windows.Forms.ComboBox cbSelect;
     }
 }

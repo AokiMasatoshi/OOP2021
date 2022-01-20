@@ -21,7 +21,8 @@ namespace Sample01
 
         private void btSearch_Click(object sender, EventArgs e)
         {
-            string WikiURL = u + tbSelect.Text; 
+            cbSelect.Items.Add(cbSelect.Text);
+            string WikiURL = u + cbSelect.Text; 
             wb1.ScriptErrorsSuppressed = true;
             Uri URL = new Uri(WikiURL);
             wb1.Url = URL;

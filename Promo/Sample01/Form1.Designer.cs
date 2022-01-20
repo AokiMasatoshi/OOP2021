@@ -30,11 +30,13 @@ namespace Sample01
         private void InitializeComponent()
         {
             this.btOthers = new System.Windows.Forms.Button();
+            this.lbTitle = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // btOthers
             // 
-            this.btOthers.Location = new System.Drawing.Point(667, 396);
+            this.btOthers.Location = new System.Drawing.Point(677, 462);
             this.btOthers.Name = "btOthers";
             this.btOthers.Size = new System.Drawing.Size(121, 42);
             this.btOthers.TabIndex = 0;
@@ -42,22 +44,37 @@ namespace Sample01
             this.btOthers.UseVisualStyleBackColor = true;
             this.btOthers.Click += new System.EventHandler(this.btOthers_Click);
             // 
+            // lbTitle
+            // 
+            this.lbTitle.AutoSize = true;
+            this.lbTitle.Font = new System.Drawing.Font("MS UI Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lbTitle.Location = new System.Drawing.Point(185, 20);
+            this.lbTitle.Name = "lbTitle";
+            this.lbTitle.Size = new System.Drawing.Size(331, 35);
+            this.lbTitle.TabIndex = 1;
+            this.lbTitle.Text = "プレミアリーグ選手名鑑";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = global::Sample01.Properties.Resources.wallpaperbetter__1_;
+            this.ClientSize = new System.Drawing.Size(834, 525);
+            this.Controls.Add(this.lbTitle);
             this.Controls.Add(this.btOthers);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Button btOthers;
+        private System.Windows.Forms.Label lbTitle;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 
