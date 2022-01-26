@@ -50,9 +50,9 @@ namespace Sample01
             this.lbTitle.Font = new System.Drawing.Font("MS UI Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.lbTitle.Location = new System.Drawing.Point(185, 20);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(331, 35);
+            this.lbTitle.Size = new System.Drawing.Size(421, 35);
             this.lbTitle.TabIndex = 1;
-            this.lbTitle.Text = "プレミアリーグ選手名鑑";
+            this.lbTitle.Text = "プレミアリーグ21-22選手名鑑";
             // 
             // Form1
             // 

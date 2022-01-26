@@ -14,6 +14,9 @@ namespace Sample01
     {
         private static Form1 _instance1;
         private string u = "https://ja.wikipedia.org/wiki/";
+        Dictionary<string, int> cbSelectname = new Dictionary<string, int>();
+        
+        
         public Form3()
         {
             InitializeComponent();
@@ -21,17 +24,29 @@ namespace Sample01
 
         private void btSearch_Click(object sender, EventArgs e)
         {
-            cbSelect.Items.Add(cbSelect.Text);
-            string WikiURL = u + cbSelect.Text; 
+            string WikiURL = u + cbSelect.Text;
             wb1.ScriptErrorsSuppressed = true;
             Uri URL = new Uri(WikiURL);
             wb1.Url = URL;
+            if (cbSelectname.ContainsKey(cbSelect.Text))
+            {
+                int temp = cbSelectname[cbSelect.Text];
+                temp += 1;
+                cbSelectname[cbSelect.Text] = temp;
+            }
+            else
+            {
+                cbSelectname.Add(cbSelect.Text, 1);
+            }
+            DicOrderDise();
         }
+            
 
         private void btBack_Click(object sender, EventArgs e)
         {
-            Visible = false;
+            
             Instance1.Show();
+            Visible = false;
         }
         public static Form1 Instance1
         {
@@ -47,5 +62,21 @@ namespace Sample01
             }
         }
 
+        private void Form3_Load(object sender, EventArgs e)
+        {
+            DicOrderDise();
+            
+        }
+
+        private void DicOrderDise()
+        {
+            cbSelect.Items.Clear();
+            var query = cbSelectname.OrderByDescending(x => x.Value);
+            foreach (var item in query)
+            {
+                
+                cbSelect.Items.Add(item.Key);
+            }
+        }
     }
 }

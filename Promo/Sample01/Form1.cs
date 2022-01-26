@@ -25,7 +25,7 @@ namespace Sample01
             SelectTeam = ((Button)sender).Text.ToString();
             var form = new Form2(SelectTeam); 
             Visible = false;
-            form.Show();
+            form.ShowDialog();
         }
         
         public static Form3 Instance3
@@ -134,7 +134,7 @@ namespace Sample01
         private void btOthers_Click(object sender, EventArgs e)
         {
             Visible = false;
-            Instance3.Show();
+            Instance3.ShowDialog();
         }
     }
 }

@@ -14,8 +14,6 @@ namespace Sample01
         public string[] TeamMenber { get; set; }
     }
 
-    //ここにチームごとの判定メソッドをまとめる
-
 
     
 }

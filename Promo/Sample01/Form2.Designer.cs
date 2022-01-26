@@ -30,9 +30,9 @@ namespace Sample01
         private void InitializeComponent()
         {
             this.lbPL = new System.Windows.Forms.ListBox();
-            this.wb = new System.Windows.Forms.WebBrowser();
             this.btback = new System.Windows.Forms.Button();
             this.lbTeamName = new System.Windows.Forms.Label();
+            this.wb1 = new System.Windows.Forms.WebBrowser();
             this.SuspendLayout();
             // 
             // lbPL
@@ -45,14 +45,6 @@ namespace Sample01
             this.lbPL.TabIndex = 0;
             this.lbPL.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lbPL_MouseClick);
             this.lbPL.SelectedIndexChanged += new System.EventHandler(this.lbPL_SelectedIndexChanged);
-            // 
-            // wb
-            // 
-            this.wb.Location = new System.Drawing.Point(344, 18);
-            this.wb.MinimumSize = new System.Drawing.Size(20, 20);
-            this.wb.Name = "wb";
-            this.wb.Size = new System.Drawing.Size(691, 641);
-            this.wb.TabIndex = 1;
             // 
             // btback
             // 
@@ -74,14 +66,22 @@ namespace Sample01
             this.lbTeamName.TabIndex = 4;
             this.lbTeamName.Text = "チーム名";
             // 
+            // wb1
+            // 
+            this.wb1.Location = new System.Drawing.Point(354, 43);
+            this.wb1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.wb1.Name = "wb1";
+            this.wb1.Size = new System.Drawing.Size(722, 643);
+            this.wb1.TabIndex = 5;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1108, 690);
+            this.Controls.Add(this.wb1);
             this.Controls.Add(this.lbTeamName);
             this.Controls.Add(this.btback);
-            this.Controls.Add(this.wb);
             this.Controls.Add(this.lbPL);
             this.Name = "Form2";
             this.RightToLeftLayout = true;
@@ -96,7 +96,7 @@ namespace Sample01
 
         private System.Windows.Forms.ListBox lbPL;
         private System.Windows.Forms.Button btback;
-        public System.Windows.Forms.WebBrowser wb;
         public System.Windows.Forms.Label lbTeamName;
+        private System.Windows.Forms.WebBrowser wb1;
     }
 }

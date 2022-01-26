@@ -95,6 +95,7 @@ namespace Sample01
             this.Controls.Add(this.btSearch);
             this.Name = "Form3";
             this.Text = "Form3";
+            this.Load += new System.EventHandler(this.Form3_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

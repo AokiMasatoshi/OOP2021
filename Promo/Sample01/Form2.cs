@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,8 +13,9 @@ namespace Sample01
 {
     public partial class Form2 : Form
     {
+        readonly CountdownEvent condition = new CountdownEvent(1);
         private static Form1 _instance1;
-        public String[] SplitMenberName;
+        public string[] SplitMenberName;
         public string TeamMenber;
         private string Selectteam;
         private string u = "http://ja.wikipedia.org/wiki/";
@@ -36,6 +38,25 @@ namespace Sample01
 
             }
 
+        }
+        //async void InitializeAsync()
+        //{
+            //await wv2.EnsureCoreWebView2Async(null);
+            //wv2.CoreWebView2.NavigationCompleted += CoreWebView2_NavigationCompleted;
+        //}
+
+        private void CoreWebView2_NavigationCompleted(object sender, Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs e)
+        {
+            //読み込み結果を判定
+            if (e.IsSuccess)
+                Console.WriteLine("complete");
+            else
+                Console.WriteLine(e.WebErrorStatus);
+
+            //シグナル初期化
+            condition.Signal();
+            System.Threading.Thread.Sleep(1);
+            condition.Reset();
         }
 
         private void SerectTeamManber()
@@ -131,13 +152,26 @@ namespace Sample01
 
         private void lbPL_SelectedIndexChanged(object sender, EventArgs e)
         { }
-        private void lbPL_MouseClick(object sender, MouseEventArgs e)
+        private  void lbPL_MouseClick(object sender, MouseEventArgs e)
         {
+            //string result = "";
             string WikiURL = u + SplitMenberName[lbPL.SelectedIndex];
-            wb.ScriptErrorsSuppressed = true;
+            wb1.ScriptErrorsSuppressed = true;
             Uri URL = new Uri(WikiURL);
-            wb.Url = URL;
+            wb1.Url = URL;
+            //wv2.CoreWebView2.Navigate(WikiURL);
+        //    await Task.Run(() =>
+        //    {
+        //        //読み込み完了まで待機
+        //        if (condition.Wait(5000))
+        //            result = "ok";
+        //        else
+        //            result = "timeout";
+        //    });
+
+        //    MessageBox.Show(result);
         }
+            
         public static Form1 Instance1
         {
             get
@@ -155,7 +189,7 @@ namespace Sample01
         private void btback_Click(object sender, EventArgs e)
         {
             Visible = false;
-            Instance1.Show();
+            Instance1.ShowDialog();
         }
     }
 }
