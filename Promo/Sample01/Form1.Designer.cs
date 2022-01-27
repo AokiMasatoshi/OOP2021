@@ -31,7 +31,6 @@ namespace Sample01
         {
             this.btOthers = new System.Windows.Forms.Button();
             this.lbTitle = new System.Windows.Forms.Label();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // btOthers
@@ -58,7 +57,6 @@ namespace Sample01
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Sample01.Properties.Resources.wallpaperbetter__1_;
             this.ClientSize = new System.Drawing.Size(834, 525);
             this.Controls.Add(this.lbTitle);
             this.Controls.Add(this.btOthers);
@@ -74,7 +72,6 @@ namespace Sample01
 
         private System.Windows.Forms.Button btOthers;
         private System.Windows.Forms.Label lbTitle;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 

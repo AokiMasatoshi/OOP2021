@@ -73,6 +73,16 @@ namespace Sample01.Properties {
         /// <summary>
         ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
         /// </summary>
+        internal static System.Drawing.Bitmap LivepoolMini1 {
+            get {
+                object obj = ResourceManager.GetObject("LivepoolMini1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
         internal static System.Drawing.Bitmap Liverpool {
             get {
                 object obj = ResourceManager.GetObject("Liverpool", resourceCulture);

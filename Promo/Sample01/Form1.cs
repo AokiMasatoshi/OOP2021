@@ -12,10 +12,12 @@ namespace Sample01
 {
     public partial class Form1 : Form
     {
+        PLTeam pt;
         private static Form3 _instance3;
         public string SelectTeam = "";
         public string Teamname ="" ;
-        private String TeamNames = "リヴァプール,マンチェスターシティ,マンチェスターユナイテッド,アーセナル,チェルシー,トッテナム,ウェストハム,ウルブス,ブライトン,レスターシティ,サウサンプトン,クリスタル・パレス,ブレントフォード,アストン・ヴィラ,エヴァートン,リーズU,ワトフォード,バーンリー,ニューカッスル,ノリッジ";
+        public string PLteamname = "リヴァプール,マンチェスターシティ,マンチェスターユナイテッド,アーセナル,チェルシー,トッテナム,ウェストハム,ウルブス,ブライトン ,レスターシティ,サウサンプトン,クリスタル・パレス,ブレントフォード,アストン・ヴィラ,エヴァートン,リーズU,ワトフォード,バーンリー,ニューカッスル,ノリッジ";
+
         public Form1()
         {
             InitializeComponent(); 
@@ -51,7 +53,7 @@ namespace Sample01
         //フォームのLoadイベントハンドラ
         private void Form1_Load(object sender, System.EventArgs e)
         {
-            SplitTeamName = TeamNames.Split(',');
+            SplitTeamName = PLteamname.Split(',');        
             //ボタンコントロール配列の作成
             this.Buttons = new Button[SplitTeamName.Length];
 
