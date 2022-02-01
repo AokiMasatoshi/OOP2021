@@ -16,7 +16,7 @@ namespace Sample01
         private static Form3 _instance3;
         public string SelectTeam = "";
         public string Teamname ="" ;
-        public string PLteamname = "リヴァプール,マンチェスターシティ,マンチェスターユナイテッド,アーセナル,チェルシー,トッテナム,ウェストハム,ウルブス,ブライトン ,レスターシティ,サウサンプトン,クリスタル・パレス,ブレントフォード,アストン・ヴィラ,エヴァートン,リーズU,ワトフォード,バーンリー,ニューカッスル,ノリッジ";
+        public string PLteamname = "リヴァプール,マンチェスターシティ,マンチェスターユナイテッド,アーセナル,チェルシー,トッテナム,ウェストハム,ウルブス,ブライトン,レスターシティ,サウサンプトン,クリスタル・パレス,ブレントフォード,アストン・ヴィラ,エヴァートン,リーズU,ワトフォード,バーンリー,ニューカッスル,ノリッジ";
 
         public Form1()
         {
@@ -67,12 +67,12 @@ namespace Sample01
                 //プロパティ設定
                 this.Buttons[i].Name = SplitTeamName[i];
                 this.Buttons[i].Text = SplitTeamName[i];
-                this.Buttons[i].Size = new Size(100, 70);
+                this.Buttons[i].Size = new Size(120,84);
                 this.Buttons[i].Click += button1_Click;
                 int sizeW = Buttons[i].Size.Width;
                 int sizeH = Buttons[i].Size.Height;
-                Buttons[i].BackgroundImage = BtBackgroundImage(Buttons[i].Name);
-                this.Buttons[i].Margin = new Padding(100,100,100,100);
+                Buttons[i].BackColor = Color.White;
+               // this.Buttons[i].Margin = new Padding(100,150,100,100);
                 this.Buttons[i].Location = new Point(offsetX+50 + i % 5 * sizeW,
                                                         offsetY+50 + i / 5 * sizeH);
             }
@@ -81,62 +81,15 @@ namespace Sample01
             this.Controls.AddRange(this.Buttons);
             this.ResumeLayout(false);
         }
-
-        private Image BtBackgroundImage(string name)
-        {
-            Image backimage = null ;
-            switch (name)
-            {
-                case "リヴァプール":
-                    backimage = Properties.Resources.LivepoolMini;
-                    break;
-                case "マンチェスターシティ":
-                    backimage = Properties.Resources.ManC_Mini;
-                    break;
-                case "マンチェスターユナイテッド":
-                    break;
-                case "アーセナル":
-                    break;
-                case "チェルシー":
-                    break;
-                case "トッテナム":
-                    break;
-                case "ウェストハム":
-                    break;
-                case "ウルブス":
-                    break;
-                case "ブライトン":
-                    break;
-                case "レスターシティ":
-                    break;
-                case "サウサンプトン":
-                    break;
-                case "クリスタル・パレス":
-                    break;
-                case "ブレントフォード":
-                    break;
-                case "アストン・ヴィラ":
-                    break;
-                case "エヴァートン":
-                    break;
-                case "リーズU":
-                    break;
-                case "ワトフォード":
-                    break;
-                case "ニューカッスル":
-                    break;
-                case "バーンリー":
-                    break;
-                case "ノリッジ":
-                    break;
-            }
-            return backimage ;
-        }
-
         private void btOthers_Click(object sender, EventArgs e)
         {
             Visible = false;
             Instance3.ShowDialog();
+        }
+
+        private void btClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

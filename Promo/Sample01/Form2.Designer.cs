@@ -32,7 +32,7 @@ namespace Sample01
             this.lbPL = new System.Windows.Forms.ListBox();
             this.btback = new System.Windows.Forms.Button();
             this.lbTeamName = new System.Windows.Forms.Label();
-            this.wb1 = new System.Windows.Forms.WebBrowser();
+            this.tbSelectTitle = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lbPL
@@ -48,7 +48,7 @@ namespace Sample01
             // 
             // btback
             // 
-            this.btback.Location = new System.Drawing.Point(27, 576);
+            this.btback.Location = new System.Drawing.Point(36, 577);
             this.btback.Name = "btback";
             this.btback.Size = new System.Drawing.Size(157, 46);
             this.btback.TabIndex = 3;
@@ -59,6 +59,7 @@ namespace Sample01
             // lbTeamName
             // 
             this.lbTeamName.AutoSize = true;
+            this.lbTeamName.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.lbTeamName.Font = new System.Drawing.Font("ＭＳ 明朝", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.lbTeamName.Location = new System.Drawing.Point(23, 46);
             this.lbTeamName.Name = "lbTeamName";
@@ -66,20 +67,21 @@ namespace Sample01
             this.lbTeamName.TabIndex = 4;
             this.lbTeamName.Text = "チーム名";
             // 
-            // wb1
+            // tbSelectTitle
             // 
-            this.wb1.Location = new System.Drawing.Point(354, 43);
-            this.wb1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.wb1.Name = "wb1";
-            this.wb1.Size = new System.Drawing.Size(722, 643);
-            this.wb1.TabIndex = 5;
+            this.tbSelectTitle.Location = new System.Drawing.Point(421, 46);
+            this.tbSelectTitle.Multiline = true;
+            this.tbSelectTitle.Name = "tbSelectTitle";
+            this.tbSelectTitle.Size = new System.Drawing.Size(675, 611);
+            this.tbSelectTitle.TabIndex = 5;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Sample01.Properties.Resources.Stadium2;
             this.ClientSize = new System.Drawing.Size(1108, 690);
-            this.Controls.Add(this.wb1);
+            this.Controls.Add(this.tbSelectTitle);
             this.Controls.Add(this.lbTeamName);
             this.Controls.Add(this.btback);
             this.Controls.Add(this.lbPL);
@@ -97,6 +99,6 @@ namespace Sample01
         private System.Windows.Forms.ListBox lbPL;
         private System.Windows.Forms.Button btback;
         public System.Windows.Forms.Label lbTeamName;
-        private System.Windows.Forms.WebBrowser wb1;
+        private System.Windows.Forms.TextBox tbSelectTitle;
     }
 }

@@ -1,13 +1,18 @@
-﻿using System;
+﻿using Microsoft.TeamFoundation.Wiki.WebApi;
+using Microsoft.TeamFoundation.WorkItemTracking.Process.WebApi.Models;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Sample01
 {
@@ -67,12 +72,10 @@ namespace Sample01
 
                     TeamMenber = "アリソン・ラムセス・ベッカー,ファビオ・エンリケ・タバレス,フィルジル・ファン・ダイク,イブラヒマ・コナテ,ティアゴ・アルカンタラ・ド・ナシメント,ジェイムズ・ミルナー,ナビ・ケイタ,ロベルト・フィルミーノ・バルボーサ・デ・オリヴェイラ,ジョー・ゴメス,アドリアン・サン・ミゲル・カスティージョ,ジョーダン・ヘンダーソン,アレックス・オックスレイド＝チェンバレン" +
                         ",カーティス・ジョーンズ,南野拓実,ディオゴ・ジョッタ,コスタス・ツィミカス,ロリス・カリウス,アンドリュー・ロバートソン_(サッカー選手),ディヴォック・オリジ,ジョエル・マティプ,ナサニエル・フィリップス,クィービーン・ケレハー,トレント・アレクサンダー＝アーノルド,ハーヴェイ・エリオット,ネコ・ウィリアムズ";
-                    BackgroundImage = Properties.Resources.Liverpool;
                     break;
                 case "マンチェスターシティ":
                     TeamMenber = "カイル・ウォーカー,ルベン・ディアス,ジョン・ストーンズ,ナタン・アケ,ラヒーム・スターリング,イルカイ・ギュンドアン,ガブリエウ・フェルナンド・ジ・ジェズス,ジャック・グリーリッシュ,オレクサンドル・ジンチェンコ,ザック・ステッフェン,アイメリク・ラポルテ,ロドリゴ・エルナンデス,ケヴィン・デ・ブライネ,ベルナルド・シウバ,バンジャマン・メンディ," +
                         "フェルナンド・ルイス・ローザ,リヤド・マフレズ,ジョアン・カンセロ,エデルソン・サンタナ・ジ・モライス,スコット・カーソン,フィル・フォーデン";
-                    BackgroundImage = Properties.Resources.ManC;
                     break;
                 case "マンチェスターユナイテッド":
                     TeamMenber = "ダビド・デ・ヘア,ヴィクトル・リンデロフ,エリック・バイリー,フィル・ジョーンズ_(サッカー選手),ハリー・マグワイア,ポール・ポグバ,クリスティアーノ・ロナウド,フアン・マタ,アントニー・マルシャル,マーカス・ラッシュフォード,メイソン・グリーンウッド,ジェシー・リンガード,アマド・ディアロ,フレデリコ・ロドリゲス・デ・パウラ・サントス," +
@@ -152,26 +155,17 @@ namespace Sample01
 
         private void lbPL_SelectedIndexChanged(object sender, EventArgs e)
         { }
-        private  void lbPL_MouseClick(object sender, MouseEventArgs e)
+        private void lbPL_MouseClick(object sender, MouseEventArgs e)
         {
-            //string result = "";
-            string WikiURL = u + SplitMenberName[lbPL.SelectedIndex];
-            wb1.ScriptErrorsSuppressed = true;
-            Uri URL = new Uri(WikiURL);
-            wb1.Url = URL;
-            //wv2.CoreWebView2.Navigate(WikiURL);
-        //    await Task.Run(() =>
-        //    {
-        //        //読み込み完了まで待機
-        //        if (condition.Wait(5000))
-        //            result = "ok";
-        //        else
-        //            result = "timeout";
-        //    });
+            var api = new API();
+            api.getXML(SplitMenberName[lbPL.SelectedIndex]);
+            var list = XDocument.Load("C:/Users/infosys/source/repos/AokiMasatoshi/OOP2021/Promo/Sample01/aaaa.xml");
+            var names = list.Descendants("query").Select(p => p.Element("pages")?.Value).ToString();
+            tbSelectTitle.Text = names;
 
-        //    MessageBox.Show(result);
+
         }
-            
+        
         public static Form1 Instance1
         {
             get
@@ -189,7 +183,7 @@ namespace Sample01
         private void btback_Click(object sender, EventArgs e)
         {
             Visible = false;
-            Instance1.ShowDialog();
+            Instance1.Show();
         }
     }
 }

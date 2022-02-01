@@ -63,9 +63,9 @@ namespace Sample01.Properties {
         /// <summary>
         ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
         /// </summary>
-        internal static System.Drawing.Bitmap LivepoolMini {
+        internal static System.Drawing.Bitmap siba {
             get {
-                object obj = ResourceManager.GetObject("LivepoolMini", resourceCulture);
+                object obj = ResourceManager.GetObject("siba", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Sample01.Properties {
         /// <summary>
         ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
         /// </summary>
-        internal static System.Drawing.Bitmap LivepoolMini1 {
+        internal static System.Drawing.Bitmap Stadium {
             get {
-                object obj = ResourceManager.GetObject("LivepoolMini1", resourceCulture);
+                object obj = ResourceManager.GetObject("Stadium", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,39 +83,9 @@ namespace Sample01.Properties {
         /// <summary>
         ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
         /// </summary>
-        internal static System.Drawing.Bitmap Liverpool {
+        internal static System.Drawing.Bitmap Stadium2 {
             get {
-                object obj = ResourceManager.GetObject("Liverpool", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
-        /// </summary>
-        internal static System.Drawing.Bitmap ManC {
-            get {
-                object obj = ResourceManager.GetObject("ManC", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
-        /// </summary>
-        internal static System.Drawing.Bitmap ManC_Mini {
-            get {
-                object obj = ResourceManager.GetObject("ManC Mini", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
-        /// </summary>
-        internal static System.Drawing.Bitmap ManC_Mini1 {
-            get {
-                object obj = ResourceManager.GetObject("ManC Mini1", resourceCulture);
+                object obj = ResourceManager.GetObject("Stadium2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

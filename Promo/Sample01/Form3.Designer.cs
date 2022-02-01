@@ -57,6 +57,7 @@ namespace Sample01
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.GreenYellow;
             this.label1.Font = new System.Drawing.Font("ＭＳ 明朝", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label1.Location = new System.Drawing.Point(65, 23);
             this.label1.Name = "label1";
@@ -87,6 +88,7 @@ namespace Sample01
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Sample01.Properties.Resources.siba;
             this.ClientSize = new System.Drawing.Size(1064, 673);
             this.Controls.Add(this.cbSelect);
             this.Controls.Add(this.btBack);
