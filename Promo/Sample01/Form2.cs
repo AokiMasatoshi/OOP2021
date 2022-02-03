@@ -1,29 +1,23 @@
-﻿using Microsoft.TeamFoundation.Wiki.WebApi;
-using Microsoft.TeamFoundation.WorkItemTracking.Process.WebApi.Models;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿using System;
+using System.IO;
 using System.Linq;
-using System.Net;
-using System.Text;
+using System.Runtime.Serialization;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 
 namespace Sample01
 {
     public partial class Form2 : Form
     {
-        readonly CountdownEvent condition = new CountdownEvent(1);
         private static Form1 _instance1;
         public string[] SplitMenberName;
+        XDocument xdoc = null;
         public string TeamMenber;
         private string Selectteam;
-        private string u = "http://ja.wikipedia.org/wiki/";
+        public string FileName = "C:/Users/infosys/source/repos/AokiMasatoshi/OOP2021/Promo/Sample01/aaaa.xml";
         //
         public Form2(String team)
         {
@@ -43,25 +37,6 @@ namespace Sample01
 
             }
 
-        }
-        //async void InitializeAsync()
-        //{
-            //await wv2.EnsureCoreWebView2Async(null);
-            //wv2.CoreWebView2.NavigationCompleted += CoreWebView2_NavigationCompleted;
-        //}
-
-        private void CoreWebView2_NavigationCompleted(object sender, Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs e)
-        {
-            //読み込み結果を判定
-            if (e.IsSuccess)
-                Console.WriteLine("complete");
-            else
-                Console.WriteLine(e.WebErrorStatus);
-
-            //シグナル初期化
-            condition.Signal();
-            System.Threading.Thread.Sleep(1);
-            condition.Reset();
         }
 
         private void SerectTeamManber()
@@ -157,15 +132,57 @@ namespace Sample01
         { }
         private void lbPL_MouseClick(object sender, MouseEventArgs e)
         {
-            var api = new API();
-            api.getXML(SplitMenberName[lbPL.SelectedIndex]);
-            var list = XDocument.Load("C:/Users/infosys/source/repos/AokiMasatoshi/OOP2021/Promo/Sample01/aaaa.xml");
-            var names = list.Descendants("query").Select(p => p.Element("pages")?.Value).ToString();
-            tbSelectTitle.Text = names;
+
+            getXML(SplitMenberName[lbPL.SelectedIndex]);
+            //var xelements = xlist.Root.Element("query").Elements("pages").Elements("page").Elements("revisions").Elements("rev").Single();
+
+            //XmlSerializer se = new XmlSerializer(typeof(api));
+            //StreamReader sr = new StreamReader(FileName, new System.Text.UTF8Encoding(false)); ;
+            //api info = (api)se.Deserialize(sr);
+            //tbSelectTitle.Text = info.query;
+
+            //var xdox = XDocument.Load(xdoc.ToString());
+
+            tbSelectTitle.Text = xdoc.Root.Elements("query").Select(x => x.Element("pages").Elements("page")).ToString(); 
+            //foreach (var item in xdoc.Root.Elements())
+            //{
+            //    var xname = item.Element("api");
+            //    tbSelectTitle.Text = xname.Value;
+            //}
 
 
+            //XmlDese((XDocument)xelements);
+            //var xtitle = xlist.Element("warnings");//.Elements("pages");
+            //XElement xElement = item.Element("query");
+            //tbSelectTitle.Text = xElement.ToString();
+            // var names = xelements.Descendants("query");
         }
-        
+
+        private void getXML(string name)
+        {
+            String URLString = "https://ja.wikipedia.org/w/api.php?action=query&format=xml&prop=revisions&titles=" + name + "&rvprop=content";
+
+            XmlTextReader reader = new XmlTextReader(URLString);
+            xdoc = XDocument.Load(reader);
+        }
+
+        private void XmlDese()
+        {
+            //保存元のファイル名
+            string fileName = @"C:\Users\infosys\source\repos\AokiMasatoshi\OOP2021\Promo\Sample01\aaaa.xml";
+
+            //XmlSerializerオブジェクトを作成
+            System.Xml.Serialization.XmlSerializer serializer =
+                new System.Xml.Serialization.XmlSerializer(typeof(api));
+            //読み込むファイルを開く
+            System.IO.StreamReader sr = new System.IO.StreamReader(
+                fileName, new System.Text.UTF8Encoding(false));
+            //XMLファイルから読み込み、逆シリアル化する
+            api obj = (api)serializer.Deserialize(sr);
+            //ファイルを閉じる
+            sr.Close();
+        }
+
         public static Form1 Instance1
         {
             get

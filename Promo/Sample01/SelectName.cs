@@ -8,11 +8,16 @@ namespace Sample01
 {
     class SelectName
     {
-        public string page_idx { get; set; }
-        public string pageid { get; set; }
-        public string ns { get; set; }
-        public string title { get; set; }
+        public string rev { get; set; }
 
     }
+    public class api
+    { 
+        public string Query { get; set; }
 
+    }
 }
+
+
+
+
