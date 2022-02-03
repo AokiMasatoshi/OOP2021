@@ -37,11 +37,12 @@ namespace Sample01
             // 
             // lbPL
             // 
+            this.lbPL.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.lbPL.FormattingEnabled = true;
-            this.lbPL.ItemHeight = 12;
+            this.lbPL.ItemHeight = 24;
             this.lbPL.Location = new System.Drawing.Point(27, 147);
             this.lbPL.Name = "lbPL";
-            this.lbPL.Size = new System.Drawing.Size(225, 316);
+            this.lbPL.Size = new System.Drawing.Size(313, 388);
             this.lbPL.TabIndex = 0;
             this.lbPL.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lbPL_MouseClick);
             this.lbPL.SelectedIndexChanged += new System.EventHandler(this.lbPL_SelectedIndexChanged);
@@ -69,9 +70,11 @@ namespace Sample01
             // 
             // tbSelectTitle
             // 
+            this.tbSelectTitle.Font = new System.Drawing.Font("MS UI Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.tbSelectTitle.Location = new System.Drawing.Point(421, 46);
             this.tbSelectTitle.Multiline = true;
             this.tbSelectTitle.Name = "tbSelectTitle";
+            this.tbSelectTitle.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.tbSelectTitle.Size = new System.Drawing.Size(675, 611);
             this.tbSelectTitle.TabIndex = 5;
             // 

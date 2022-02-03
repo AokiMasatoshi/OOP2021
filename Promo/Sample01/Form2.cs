@@ -17,6 +17,7 @@ namespace Sample01
         XDocument xdoc = null;
         public string TeamMenber;
         private string Selectteam;
+        public string URLString;
         public string FileName = "C:/Users/infosys/source/repos/AokiMasatoshi/OOP2021/Promo/Sample01/aaaa.xml";
         //
         public Form2(String team)
@@ -132,30 +133,18 @@ namespace Sample01
         { }
         private void lbPL_MouseClick(object sender, MouseEventArgs e)
         {
+            URLString = "https://ja.wikipedia.org/w/api.php?action=query&format=xml&prop=revisions&titles=" + SplitMenberName[lbPL.SelectedIndex] + "&rvprop=content";
 
-            getXML(SplitMenberName[lbPL.SelectedIndex]);
-            //var xelements = xlist.Root.Element("query").Elements("pages").Elements("page").Elements("revisions").Elements("rev").Single();
+            XmlTextReader reader = new XmlTextReader(URLString);
+            xdoc = XDocument.Load(reader);
 
-            //XmlSerializer se = new XmlSerializer(typeof(api));
-            //StreamReader sr = new StreamReader(FileName, new System.Text.UTF8Encoding(false)); ;
-            //api info = (api)se.Deserialize(sr);
-            //tbSelectTitle.Text = info.query;
+            StringWriter stringWriter = new StringWriter();
+            // XmlDocument の中身を, StringWriter に書き出す.
+            xdoc.Save(stringWriter);
+            // 文字列に変換する.
+            string str = stringWriter.ToString();
 
-            //var xdox = XDocument.Load(xdoc.ToString());
-
-            tbSelectTitle.Text = xdoc.Root.Elements("query").Select(x => x.Element("pages").Elements("page")).ToString(); 
-            //foreach (var item in xdoc.Root.Elements())
-            //{
-            //    var xname = item.Element("api");
-            //    tbSelectTitle.Text = xname.Value;
-            //}
-
-
-            //XmlDese((XDocument)xelements);
-            //var xtitle = xlist.Element("warnings");//.Elements("pages");
-            //XElement xElement = item.Element("query");
-            //tbSelectTitle.Text = xElement.ToString();
-            // var names = xelements.Descendants("query");
+            tbSelectTitle.Text = str;
         }
 
         private void getXML(string name)
