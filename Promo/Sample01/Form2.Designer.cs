@@ -91,7 +91,6 @@ namespace Sample01
             this.Name = "Form2";
             this.RightToLeftLayout = true;
             this.Text = "Form2";
-            this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

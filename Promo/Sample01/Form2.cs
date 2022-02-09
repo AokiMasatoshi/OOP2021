@@ -137,7 +137,6 @@ namespace Sample01
 
             XmlTextReader reader = new XmlTextReader(URLString);
             xdoc = XDocument.Load(reader);
-
             StringWriter stringWriter = new StringWriter();
             // XmlDocument の中身を, StringWriter に書き出す.
             xdoc.Save(stringWriter);
@@ -184,6 +183,10 @@ namespace Sample01
                 }
                 return _instance1;
             }
+        }
+        public static T Load<T>(string filename)
+        {
+            
         }
 
         private void btback_Click(object sender, EventArgs e)
