@@ -293,10 +293,6 @@ namespace CarReportSystem {
 
         }
 
-        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
 
